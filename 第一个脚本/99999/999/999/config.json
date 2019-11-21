@@ -5,19 +5,19 @@
 	}],
   "checkbox": [
     {
-      "title": "新手任务",
-      "checked": false
-    },
-    {
       "title": "副本任务",
       "checked": false
     },
     {
-      "title": "道馆BOSS",
+      "title": "行会任务",
       "checked": false
     },
     {
-      "title": "竞技任务",
+      "title": "无限福利",
+      "checked": false
+    },
+    {
+      "title": "个人boss",
       "checked": false
     }
   ]
