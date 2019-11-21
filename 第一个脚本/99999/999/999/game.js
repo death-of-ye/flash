@@ -11,7 +11,6 @@ let auxiliaryId = 999;
 let version = 999;
 //指定文件路径"./sdcard/                                    脚本/游戏ID/脚本ID/版本ID/config.json";
 let filePath = "/storage/emulated/0/sdcard/脚本/" + gameId + "/" + auxiliaryId + "/" + version + "/config.json";
-// let filePath = "C:\Users\Administrator.ZGC-20161213KEO\Desktop\99999\practice\第一个脚本\99999\999\999\config.json";
 let 是否执行新手任务 = false;
 let 是否打BOSS任务 = false;
 let 是否打副本任务 = false;
@@ -32,8 +31,8 @@ let main = function () {
             UTILS.toastLog('请先运行游戏!')
             return;
         }
-        // this.initData(filePath);
-        // sleep(1000)
+        this.initData(filePath);
+        sleep(1000)
     }
     //读取指定位置文件内容配置初始化数据
     this.initData = (path) => {
