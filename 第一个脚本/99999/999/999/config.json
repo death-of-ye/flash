@@ -1,0 +1,24 @@
+﻿﻿{
+	"title": "霸刀无限版",
+	"desc": [{
+		"item": "<霸刀无限版>功能介绍:"
+	}],
+  "checkbox": [
+    {
+      "title": "新手任务",
+      "checked": false
+    },
+    {
+      "title": "副本任务",
+      "checked": false
+    },
+    {
+      "title": "道馆BOSS",
+      "checked": false
+    },
+    {
+      "title": "竞技任务",
+      "checked": false
+    }
+  ]
+}
