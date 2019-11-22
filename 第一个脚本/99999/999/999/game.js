@@ -23,6 +23,7 @@ let 当天时间 = '';
 let main = function () {
     this.init = () => {
         UTILS.log("start");
+        sleep(1000);
         this.initEvents();
         sleep(1000);
         if (UTILS.checkCurrentPackage(游戏包名)) {
@@ -31,8 +32,8 @@ let main = function () {
             UTILS.toastLog('请先运行游戏!')
             return;
         }
-        this.initData(filePath);
-        sleep(1000)
+        // this.initData(filePath);
+        // sleep(1000)
     }
     //读取指定位置文件内容配置初始化数据
     this.initData = (path) => {
@@ -67,258 +68,20 @@ let main = function () {
 
         UTILS.toastLog('开始运行');
         sleep(3000);
+        // this.点击副本挑战s();
+        this.boss挑战s();
         // this.领取无限福利();
         // this.行会任务();
         // this.开始副本挑战();
-        this.BOSS挑战();
-        // this.点击副本();
-        // let 副本挑战次数 = 0;
-        // let 副本挑战时间 = setInterval(() => {
-        //     // this.点击副本挑战();
-        //     副本挑战次数 += 1;
-        //     if (副本挑战次数 > 0) {
-        //         clearInterval(副本挑战时间);
-        //         sleep(1000);
-        //         // this.点击副本扫荡();
-        //         let 扫荡次数 = 0;
-        //         let 副本扫荡时间 = setInterval(() => {
-        //             // this.点击副本扫荡();
-        //             扫荡次数 += 1;
-        //             console.log(扫荡次数);
-        //             if (扫荡次数 > 0) {
-        //                 clearInterval(副本扫荡时间);
-        //                 // sleep(2000);
-        //                 // this.点击经验副本();
-        //                 // sleep(2000);
-        //                 // this.点击经验副本挑战();
-        //                 // sleep(60000);
-        //                 // this.领取经验奖励();
-        //                 // sleep(2000);
-        //                 // this.点击经验副本挑战();
-        //                 // sleep(60000);
-        //                 // this.领取经验奖励();
-        //                 sleep(2000);
-        //                 this.点击通天塔();
-        //                 sleep(2000);
-        //                 this.领取通天塔每日奖励();
-        //                 // sleep(3000);
-        //                 // this.通天塔挑战();
-        //                 // this.通天塔挑战失败();
-        //                 // this.点击玩法();
-        //                 // sleep(2000);
-        //                 // this.进入玩法();
-        //                 // sleep(2000);
-        //                 // // this.自动掷骰子();
-        //                 sleep(2000);
-        //                 this.点击返回按钮();
-        //                 sleep(2000);
-        //                 this.点击角色();
-        //                 sleep(2000);
-        //                 if (this.判断有没有一键换装() != null) {
-        //                     this.点击一键换装();
-        //                 }
-        //                 // sleep(2000);
-        //                 // this.点击特戒();
-        //                 // sleep(2000);
-        //                 // this.点击特戒_item();
-        //                 // sleep(2000)
-        //                 // this.点击神装();
-        //                 // sleep(2000);
-        //                 // this.战士角色();
-        //                 // sleep(2000);
-        //                 // this.神装合成();
-        //                 // sleep(2000);
-        //                 // this.合成按钮();
-        //                 // sleep(2000);
-        //                 // this.法师角色();
-        //                 // sleep(2000);
-        //                 // this.神装合成();
-        //                 // sleep(2000);
-        //                 // this.合成按钮();
-        //                 // sleep(2000);
-        //                 // this.道士角色();
-        //                 // sleep(2000);
-        //                 // this.神装合成();
-        //                 // sleep(2000);
-        //                 // this.合成按钮();
-        //                 // sleep(2000);
-        //                 // this.点击返回按钮();
-        //                 sleep(2000);
-        //                 this.宝物();
-        //                 sleep(2000);
-        //                 this.战士角色();
-        //                 sleep(2000);
-        //                 this.宝物提升();
-        //                 sleep(5000);
-        //                 this.法师角色();
-        //                 sleep(2000);
-        //                 this.宝物提升();
-        //                 sleep(5000);
-        //                 this.道士角色();
-        //                 sleep(2000);
-        //                 this.宝物提升();
-        //                 sleep(5000);
-        //                 this.点击返回按钮();
-        //                 sleep(2000);
-        //                 this.点击返回按钮();
-        //                 sleep(2000);
-
-        //                 this.点击boss();
-        //                 sleep(2000);
-        //                 let 野外挑战次数 = 0;
-        //                 let boss挑战时间 = setInterval(() => {
-        //                     let 是否在首页 = this.判断是否在首页();
-        //                     if (是否在首页 == null) {
-        //                         let boss挑战 = this.暂无挑战();
-        //                         if (boss挑战 != null) {
-        //                             this.boss挑战();
-        //                         } else {
-        //                             clearInterval(boss挑战时间);
-        //                             sleep(2000);
-        //                             this.野外BOSS();
-        //                             sleep(2000);
-        //                             let 野外BOSS挑战 = setInterval(() => {
-        //                                 野外挑战次数 += 1;
-        //                                 log(野外挑战次数);
-        //                                 if (野外挑战次数 > 0) {
-        //                                     clearInterval(野外BOSS挑战);
-        //                                     this.boss之家();
-        //                                     let boss之家挑战 = setInterval(() => {
-        //                                         this.boss之家挑战();
-        //                                         sleep(2000);
-        //                                         this.boss之家挑战_item();
-        //                                         if(this.boss之家挑战_item() == null){
-        //                                             clearInterval(boss之家挑战);
-        //                                             sleep(5000);
-        //                                             this.点击返回按钮();
-        //                                             sleep(2000);
-        //                                         }
-        //                                     }, 30000)
-        //                                 } else {
-        //                                     this.野外BOSS挑战();
-        //                                     sleep(50000);
-        //                                     this.点击boss();
-        //                                     sleep(2000);
-        //                                     this.野外BOSS();
-        //                                     sleep(2000);
-        //                                 }
-        //                             }, 40000)
-        //                         }
-        //                     } else {
-        //                         clearInterval(boss挑战时间);
-        //                         this.点击boss();
-        //                         sleep(2000);
-        //                         this.野外BOSS();
-        //                         sleep(2000);
-        //                         let 野外BOSS挑战 = setInterval(() => {
-        //                             野外挑战次数 += 1;
-        //                             if (野外挑战次数 > 0) {
-        //                                 clearInterval(野外BOSS挑战);
-        //                                 this.boss之家();
-        //                                 let boss之家挑战 = setInterval(() => {
-        //                                     this.boss之家挑战();
-        //                                     sleep(2000);
-        //                                     this.boss之家挑战_item();
-        //                                     if(this.boss之家挑战_item() == null){
-        //                                         clearInterval(boss之家挑战);
-        //                                         sleep(5000);
-        //                                         this.点击返回按钮();
-        //                                         sleep(2000);
-        //                                     }
-        //                                 }, 30000)
-        //                             } else {
-        //                                 this.野外BOSS挑战();
-        //                                 sleep(50000);
-        //                                 this.点击boss();
-        //                                 sleep(2000);
-        //                                 this.野外BOSS();
-        //                                 sleep(2000);
-        //                             }
-        //                         }, 40000)
-        //                     }
-        //                 }, 40000);
-        //             }
-        //         }, 2000);
-        //     }
-        //     UTILS.toastLog('挑战成功,1min后开始挑战');
-
-        // }, 2000);
-
-
-
-
-
-        // this.点击背包();
-        // sleep(2000);
-        // this.背包熔炼();
-        // let 熔炼 = setInterval(() => {
-        //     this.背包熔炼_item();
-
-        //     熔炼结束 = this.熔炼结束();
-        //     console.log(熔炼结束);
-        //     if(熔炼结束 != null){
-        //         clearInterval(熔炼);
-        //         this.熔炼返回();
-        //     }
-        // }, 2000);
-        // sleep(4000);
-        // this.锻造();
-        // sleep(2500);
-                                       // this.一键强化();
-        // let 强化失败 = this.强化失败();
-        // if(强化失败 != null){
-        //     UTILS.click(1,1)
-        // }
-
-        // this.锻造_精炼();
-        // sleep(3000);
-        // let 锻造_精炼 = setInterval(() => {
-        // this.精炼按钮();
-        // console.log(this.精炼失败()); 
-        // if(this.精炼失败() != null){
-        //  clearInterval(锻造_精炼);
-        //  UTILS.click(15,15)
-        //  this.锻造_锻造();
-        //  sleep(3000);
-        //  let 锻造_锻造 = setInterval(() => {
-        //     this.锻造_锻造按钮(); 
-        //     if(this.精炼失败() != null){
-        //         clearInterval(锻造_锻造);
-        //         UTILS.click(15,15);
-        //        }   
-        //     }, 2000);
-        // }   
-        // }, 2000);
-        // sleep(3000);
-
-
-        // this.点击boss();
-        // sleep(2000);
-        // // let boss挑战时间 = setInterval(() => {
-        // //     this.boss挑战();
-        // //     let boss挑战 = this.暂无挑战();
-        // //     if(boss挑战 == null) {
-        // //         clearInterval(boss挑战时间);
-        // //     }
-        // // },60000);
-        // // this.野外BOSS();
-        // // sleep(2000);
-        // // this.野外BOSS挑战();
-        // this.boss之家();
-        // sleep(2000);
-        // this.boss之家挑战();
-        // sleep(2000);
-        // this.boss之家挑战_item();
-        // sleep(2000);
-        // this.boss之家分支挑战();
-        // sleep(2000);
-
+        // this.BOSS挑战();
+        // this.角色操作();
     }
 
 
     this.点击副本 = () => {
         let 副本 = UTILS.findImage(IMAGE.霸刀无限版, 2, 2);
-        UTILS.log(副本+'副本');
+        UTILS.log(副本 + '副本');
+        sleep(3000);
         UTILS.click(副本.x, 副本.y);
     }
 
@@ -338,56 +101,6 @@ let main = function () {
             }
         }
 
-    }
-    this.点击副本扫荡 = () => {
-        let 扫荡 = IMAGE.副本扫荡;
-        let arr = [];
-        for (let i = 0; i < 4; i++) {
-            arr.push(UTILS.findImage(扫荡, 2, 2, 0.7))
-        }
-        //  UTILS.toastLog(arr);
-        for (let i = 0; i < 8 * arr.length; i++) {
-            if (arr[i] == null) { } else {
-                UTILS.click(arr[i].x, arr[i].y);
-            }
-        }
-    }
-
-    this.点击经验副本 = () => {
-        console.log('点击经验副本');
-        let 点击经验副本 = UTILS.findImage(IMAGE.经验副本, 1, 2, 0.7);
-        UTILS.log(点击经验副本+'点击经验副本');
-        UTILS.click(点击经验副本.x, 点击经验副本.y);
-    }
-
-    this.点击经验副本挑战 = () => {
-        console.log('点击经验副本挑战');
-        let arr = [];
-        for (let i = 0; i < 2; i++) {
-            arr.push(UTILS.findImage(IMAGE.经验副本挑战, 1, 2, 0.7))
-        }
-        UTILS.toastLog(arr);
-        UTILS.click(arr[1].x, arr[1].y);
-    }
-
-    this.领取经验奖励 = () => {
-        console.log('领取经验奖励');
-        let arr = [];
-        for (let i = 0; i < 2; i++) {
-            arr.push(UTILS.findImage(IMAGE.领取经验奖励, 2, 2, 0.7))
-        }
-        // console.log(arr);
-        UTILS.click(arr[0].x, arr[0].y);
-    }
-
-    this.点击通天塔 = () => {
-        //   // 点击通天塔
-
-        let arr = [];
-        for (let i = 0; i < 2; i++) {
-            arr.push(UTILS.findImage(IMAGE.经验副本, 1, 2, 0.7))
-        }
-        UTILS.click(arr[1].x * 2, arr[1].y);
     }
 
     this.通天塔挑战 = () => {
@@ -419,15 +132,6 @@ let main = function () {
         }
         UTILS.click(arr[1].x, arr[1].y);
 
-    }
-
-    this.领取通天塔每日奖励 = () => {
-        let arr = [];
-        for (let i = 0; i < 2; i++) {
-            arr.push(UTILS.findImage(IMAGE.通天塔每日奖励, 2, 0, 0.7))
-        }
-        UTILS.toastLog(arr);
-        UTILS.click(arr[1].x, arr[1].y);
     }
 
 
@@ -547,12 +251,11 @@ let main = function () {
     }
 
     this.战士角色 = () => {
-        let arr = [];
-        for (let i = 0; i < 2; i++) {
-            arr.push(UTILS.findImage(IMAGE.战士角色, 1, 0, 0.7))
-        }
-        console.log(arr);
-        // UTILS.click(arr[1].x, arr[1].y);
+        sleep(3000);
+        let 战士角色 = UTILS.findImage(IMAGE.战士角色, 1, 0, 0.7);
+        sleep(3000);
+        UTILS.click(战士角色.x, 战士角色.y);
+        sleep(3000);
     }
 
     this.法师角色 = () => {
@@ -760,21 +463,21 @@ let main = function () {
     this.boss之家挑战 = () => {
         let boss之家挑战 = UTILS.findImage(IMAGE.boss之家挑战, 2, 2, 0.7);
 
-        console.log(boss之家挑战+'boss之家挑战');
-        if(boss之家挑战 == null){
+        console.log(boss之家挑战 + 'boss之家挑战');
+        if (boss之家挑战 == null) {
             return boss之家挑战;
-        }else{
+        } else {
             UTILS.click(boss之家挑战.x, boss之家挑战.y);
         }
-        
+
     }
 
     this.boss之家挑战_item = () => {
         let boss之家挑战分支 = UTILS.findImage(IMAGE.boss之家挑战分支, 2, 2, 0.7)
-        console.log(boss之家挑战分支+'boss之家挑战_item');
-        if(boss之家挑战分支 == null){
+        console.log(boss之家挑战分支 + 'boss之家挑战_item');
+        if (boss之家挑战分支 == null) {
             return;
-        }else{
+        } else {
             UTILS.click(boss之家挑战分支.x, boss之家挑战分支.y);
         }
     }
@@ -784,7 +487,7 @@ let main = function () {
         for (let i = 0; i < 2; i++) {
             arr.push(UTILS.findImage(IMAGE.boss之家分支挑战, 2, 2, 0.7));
         }
-        console.log(arr+'boss之家分支挑战');
+        console.log(arr + 'boss之家分支挑战');
         UTILS.click(arr[1].x, arr[1].y);
     }
 
@@ -850,10 +553,11 @@ let main = function () {
         UTILS.toastLog('副本挑战开始，请等待');
         sleep(2000);
         let 副本挑战时间 = setInterval(() => {
-            // this.点击副本挑战();
-            let 副本挑战 = UTILS.findImage(IMAGE.副本挑战s,2,2,0.7);
-            UTILS.log(副本挑战+'副本挑战');
-            if(副本挑战 == null){
+            this.点击副本挑战();
+            let 副本挑战 = UTILS.findImage(IMAGE.副本挑战s, 2, 2, 0.7);
+            UTILS.log(副本挑战 + '副本挑战');
+            let 副本 = UTILS.findImage(IMAGE.霸刀无限版, 2, 2);
+            if (副本挑战 == null && 副本 == null) {
                 clearInterval(副本挑战时间);
                 sleep(2000);
                 UTILS.toastLog('副本挑战完毕,等待扫荡');
@@ -861,117 +565,123 @@ let main = function () {
                 UTILS.toastLog('副本扫荡开始，请等待');
                 sleep(2000);
                 let 副本扫荡时间 = setInterval(() => {
-                    let 副本扫荡 = UTILS.findImage(IMAGE.副本扫荡s,2,2,0.7);
-                    UTILS.log(副本扫荡+'副本扫荡');
+                    let 副本扫荡 = UTILS.findImage(IMAGE.副本扫荡s, 2, 2, 0.7);
+                    UTILS.log(副本扫荡 + '副本扫荡');
                     sleep(2000);
-                    if(副本扫荡 == null){
+                    if (副本扫荡 == null) {
                         clearInterval(副本扫荡时间);
                         sleep(2000);
                         UTILS.toastLog('副本扫荡完毕,请等待');
                         sleep(2000);
                         let 点击经验副本 = UTILS.findImage(IMAGE.经验副本, 1, 2, 0.7);
-                        UTILS.log(点击经验副本+'点击经验副本');
+                        UTILS.log(点击经验副本 + '点击经验副本');
                         sleep(2000);
                         UTILS.click(点击经验副本.x + 200, 点击经验副本.y);
                         sleep(2000);
                         UTILS.toastLog('经验副本挑战即将开始,请等待');
                         sleep(2000);
-                        let 挑战区域Y = UTILS.deviceWidth/3*2;
-                        let 挑战区域H = UTILS.deviceWidth/3;
-                        let 领取区域Y = UTILS.deviceHeight/2;
+                        let 挑战区域Y = UTILS.deviceHeight / 3 * 2;
+                        let 挑战区域H = UTILS.deviceHeight / 3;
+                        let 领取区域Y = UTILS.deviceHeight / 2;
                         // log(挑战区域Y,挑战区域H)
                         let 经验副本时间 = setInterval(() => {
                             UTILS.toastLog('经验副本挑战开始,请等待');
                             // let 经验副本挑战 = UTILS.findImage(IMAGE.经验副本挑战s,2,1,0.7);
-                            let 经验副本挑战 = UTILS.findColorNoClick('#B05F22',[[39,24,'#D1C28F'],[57,35,'#FFD58E'],[73,68,'#DAAE34']],[0,挑战区域Y,屏幕宽,挑战区域H],20);
-                            UTILS.log(经验副本挑战+'经验副本挑战');
+                            let 经验副本挑战 = UTILS.findColorNoClick('#713E19', [[12, 41, '#B38352'], [102, 41, '#D1C28F'], [131, 77, '#E3C94E']], [0, 挑战区域Y, 屏幕宽, 挑战区域H], 10);
+                            UTILS.log(经验副本挑战 + '经验副本挑战');
 
-                            if(经验副本挑战 == null) {
+                            if (经验副本挑战 == null) {
                                 clearInterval(经验副本时间);
                                 sleep(2000);
                                 UTILS.toastLog('经验副本挑战次数不足，稍后将领取通天塔奖励');
                                 sleep(2000);
                                 let 点击经验副本 = UTILS.findImage(IMAGE.经验副本, 1, 2, 0.7);
-                                UTILS.log(点击经验副本+'通天塔');
+                                UTILS.log(点击经验副本 + '通天塔');
                                 sleep(2000);
-                                UTILS.click(点击经验副本.x -200, 点击经验副本.y);
+                                UTILS.click(点击经验副本.x - 200, 点击经验副本.y);
                                 sleep(2000);
                                 let 通天塔每日奖励 = UTILS.findImage(IMAGE.通天塔每日奖励s, 2, 0, 0.7);
-                                UTILS.log(通天塔每日奖励+'通天塔每日奖励');
-                                UTILS.click(通天塔每日奖励.x,通天塔每日奖励.y);
+                                UTILS.log(通天塔每日奖励 + '通天塔每日奖励');
+                                UTILS.click(通天塔每日奖励.x, 通天塔每日奖励.y);
                                 sleep(2000);
-                                let 通天塔每日领取 =  UTILS.findColorNoClick('#AF6D22',[[75,24,'#A6531E'],[127,3,'#DEB039'],[103,87,'#E8D96F']],[0,领取区域Y,屏幕宽,领取区域Y],10);
+                                let 通天塔每日领取 = UTILS.findColorNoClick('#AF6D22', [[75, 24, '#A6531E'], [127, 3, '#DEB039'], [103, 87, '#E8D96F']], [0, 领取区域Y, 屏幕宽, 领取区域Y], 10);
                                 UTILS.log(通天塔每日领取 + '通天塔每日领取');
-                                if(通天塔每日领取 == null){
+                                if (通天塔每日领取 == null) {
                                     UTILS.toastLog('通天塔每日领取完毕');
-                                }else{
-                                    UTILS.click(通天塔每日领取.x,通天塔每日领取.y);
+                                } else {
+                                    UTILS.click(通天塔每日领取.x, 通天塔每日领取.y);
                                     sleep(2000);
-                                    UTILS.click(通天塔每日领取.x,通天塔每日领取.y);
+                                    UTILS.click(通天塔每日领取.x, 通天塔每日领取.y);
                                     sleep(2000);
                                 }
-                            }else{
+                            } else {
                                 UTILS.click(经验副本挑战.x, 经验副本挑战.y);
-                                sleep(32000);
+                                sleep(50000);
                                 let 领取经验奖励 = UTILS.findImage(IMAGE.领取经验奖励, 2, 2, 0.7);
-                                UTILS.click(领取经验奖励.x , 领取经验奖励.y);
+                                sleep(2000);
+                                UTILS.click(领取经验奖励.x, 领取经验奖励.y);
                                 sleep(2000);
                             }
-                        // },50000)
-                    },2000)
-                    }else{
-                        UTILS.click(副本扫荡.x,副本扫荡.y);
+                        }, 60000)
+                        // },2000)
+                    } else {
+                        UTILS.click(副本扫荡.x, 副本扫荡.y, 10, 10, 200);
+                        // sleep(3000);
                     }
-                },2000)
-            }else{
-                UTILS.click(副本挑战.x,副本挑战.y);
+                }, 4000)
+            } else {
+                // sleep(2000);
+                // this.点击副本();
+                // UTILS.log(11111);
+                sleep(3000);
+                UTILS.click(副本挑战.x, 副本挑战.y);
             }
 
-        },2000);
+        }, 60000);
 
     }
 
     this.领取无限福利 = () => {
         UTILS.toastLog('开始领取无限福利');
         let 无限福利 = UTILS.findImage(IMAGE.无限福利, 0, 1, 0.7);
-        log(无限福利,'无限福利');
+        log(无限福利, '无限福利');
         sleep(3000);
         UTILS.click(无限福利.x, 无限福利.y);
         // UTILS.toastLog('请等待，两秒后开始领取');
         let 无限福利领取次数 = setInterval(() => {
             let 无限福利领取 = UTILS.findImage(IMAGE.无限福利领取, 2, 2, 0.7);
-            if(无限福利领取 == null){
+            if (无限福利领取 == null) {
                 clearInterval(无限福利领取次数);
                 sleep(2000);
                 let 传世神装 = UTILS.findImage(IMAGE.传世神装, 1, 2, 0.7);
-                UTILS.click(传世神装.x,传世神装.y);
+                UTILS.click(传世神装.x, 传世神装.y);
                 sleep(2000);
                 let 传世神装次数 = setInterval(() => {
                     let 传世神装领取 = UTILS.findImage(IMAGE.传世神装领取, 2, 2, 0.7);
-                    if(传世神装领取 == null){
+                    if (传世神装领取 == null) {
                         clearInterval(传世神装次数);
                         let 无限特戒 = UTILS.findImage(IMAGE.无限特戒, 1, 2, 0.7);
-                        UTILS.click(无限特戒.x,无限特戒.y);
+                        UTILS.click(无限特戒.x, 无限特戒.y);
                         sleep(2000);
                         let 无限特戒次数 = setInterval(() => {
-                        let 无限特戒领取 = UTILS.findImage(IMAGE.无限特戒领取, 2, 2, 0.7);
-                        if(无限特戒领取 == null){
-                            UTILS.toastLog('无限福利领取完毕')
-                            clearInterval(无限特戒次数);
-                            this.点击返回按钮();
-                            sleep(2000);
-                        }else{
-                            UTILS.click(无限特戒领取.x, 无限特戒领取.y);
-                        }
-                        },2000);
-                    }else{
+                            let 无限特戒领取 = UTILS.findImage(IMAGE.无限特戒领取, 2, 2, 0.7);
+                            if (无限特戒领取 == null) {
+                                UTILS.toastLog('无限福利领取完毕')
+                                clearInterval(无限特戒次数);
+                                this.点击返回按钮();
+                                sleep(2000);
+                            } else {
+                                UTILS.click(无限特戒领取.x, 无限特戒领取.y);
+                            }
+                        }, 2000);
+                    } else {
                         UTILS.click(传世神装领取.x, 传世神装领取.y);
                     }
-                },2000);
-            }else{
+                }, 2000);
+            } else {
                 UTILS.click(无限福利领取.x, 无限福利领取.y);
             }
-        },2000);
+        }, 2000);
     }
 
 
@@ -980,102 +690,150 @@ let main = function () {
         let 屏幕宽 = UTILS.deviceWidth;
         let 屏幕高 = UTILS.deviceHeight;
         let 行会 = UTILS.findImage(IMAGE.行会, 0, 1, 0.7);
-        log(行会,'行会');
+        log(行会, '行会');
         sleep(3000);
         UTILS.click(行会.x, 行会.y);
         sleep(2000);
         let 行会大厅 = UTILS.findImage(IMAGE.行会大厅, 2, 1, 0.7);
-        log(行会大厅,'行会大厅');
+        log(行会大厅, '行会大厅');
         sleep(3000);
         UTILS.click(行会大厅.x, 行会大厅.y);
         sleep(2000);
         let 行会捐赠 = UTILS.findImage(IMAGE.行会捐赠, 2, 2, 0.7);
-        log(行会捐赠,'行会大厅');
+        log(行会捐赠, '行会大厅');
         sleep(3000);
         UTILS.click(行会捐赠.x, 行会捐赠.y);
         sleep(3000);
 
         let 行会金币捐赠次数 = 0;
-        let 捐赠区域x = UTILS.deviceWidth/2;
-        let 是否可捐赠 = UTILS.findColorNoClick('#97501A',[[14,22,'#A6541A'],[25,15,'#C1894F'],[65,20,'#C86A1A']],[捐赠区域x,0,捐赠区域x,屏幕高],20,0,30);
+        let 捐赠区域x = UTILS.deviceWidth / 2;
+        let 是否可捐赠 = UTILS.findColorNoClick('#97501A', [[14, 22, '#A6541A'], [25, 15, '#C1894F'], [65, 20, '#C86A1A']], [捐赠区域x, 0, 捐赠区域x, 屏幕高], 20, 0, 30);
         // log(是否可捐赠+'是否可捐赠');
         sleep(2000);
-        if(是否可捐赠 != null){
+        if (是否可捐赠 != null) {
             let 行会金币捐赠点击 = setInterval(() => {
                 UTILS.click(是否可捐赠.x, 是否可捐赠.y);
-                行会金币捐赠次数+=1;
-                if(行会金币捐赠次数 == 10){
+                行会金币捐赠次数 += 1;
+                if (行会金币捐赠次数 == 10) {
                     UTILS.toastLog('今天已经捐赠过了，请明天再来');
                     clearInterval(行会金币捐赠点击);
                     sleep(2000);
                     UTILS.click(50, 50);
                     sleep(1500);
                     this.点击返回按钮();
-                    // sleep(2000);
-                    // let 活动大厅 = UTILS.findImage(IMAGE.活动大厅, 2, 2, 0.7);
-                    // log(活动大厅,'活动大厅'); 
-                    // UTILS.click(活动大厅.x, 活动大厅.y);
+                    sleep(2000);
+                    let 活动大厅 = UTILS.findImage(IMAGE.活动大厅, 2, 2, 0.7);
+                    log(活动大厅, '活动大厅');
+                    UTILS.click(活动大厅.x, 活动大厅.y);
+                    sleep(2000);
+                    let 篝火盛会 = UTILS.findImage(IMAGE.篝火盛会, 1, 2, 0.7);
+                    UTILS.log(篝火盛会 + '篝火盛会');
+                    UTILS.click(篝火盛会.x, 篝火盛会.y);
+                    sleep(2000);
+                    let 篝火 = UTILS.findImage(IMAGE.篝火, 2, 1, 0.7);
+                    UTILS.log(篝火 + '篝火');
+                    sleep(2000);
+                    let 篝火点击 = setInterval(() => {
+                        let 篝火道具 = UTILS.findColorNoClick('#E10302', [[15, 10, '#FF0000'], [7, 11, '#190A07']], [篝火.x, 篝火.y, 200, 100], 20);
+                        UTILS.log(篝火道具 + '篝火道具');
+                        if (篝火道具 != null) {
+                            UTILS.toastLog('篝火道具不足');
+                            sleep(1000);
+                            clearInterval(篝火点击);
+                            sleep(2000);
+                            this.点击返回按钮();
+                            sleep(2000);
+                            let 行会boss = UTILS.findImage(IMAGE.行会boss, 2, 2, 0.7);
+                            UTILS.log(行会boss + '行会boss');
+                            sleep(2000);
+                            UTILS.click(行会boss.x, 行会boss.y);
+                            sleep(2000);
+
+                            let 完美通关次数 = setInterval(() => {
+                                let 完美通关 = UTILS.findImageFullScreen(IMAGE.行会boss挑战, 0.7);
+                                UTILS.log(完美通关 + '完美通关');
+                                sleep(2000);
+                                if (完美通关 == null) {
+                                    UTILS.toastLog('行会boss挑战领取完毕');
+                                    clearInterval(完美通关次数);
+                                } else {
+                                    UTILS.click(完美通关.x, 完美通关.y);
+                                    sleep(2000);
+                                    let 完美领取 = UTILS.findColorNoClick('#A7551F', [[109, 35, '#D1C18E'], [74, 29, '#D1C18E']], [], 20);
+                                    UTILS.log(完美领取 + '完美领取');
+                                    sleep(2000);
+                                    UTILS.click(完美领取.x, 完美领取.y);
+                                    sleep(4000);
+                                    UTILS.click(100, 100);
+                                }
+
+
+                            }, 10000)
+                        } else {
+                            UTILS.click(篝火.x, 篝火.y);
+                        }
+                    }, 2000)
                 }
             }, 2000);
-        }else{
+        } else {
             sleep(2000);
             UTILS.click(50, 50);
             sleep(1500);
-            this.点击返回按钮(); 
+            this.点击返回按钮();
             sleep(2000);
             let 活动大厅 = UTILS.findImage(IMAGE.活动大厅, 2, 2, 0.7);
-            log(活动大厅,'活动大厅'); 
+            log(活动大厅, '活动大厅');
             UTILS.click(活动大厅.x, 活动大厅.y);
             sleep(2000);
-            let 篝火盛会 = UTILS.findImage(IMAGE.篝火盛会,1,2,0.7);
-            UTILS.log(篝火盛会+'篝火盛会');
-            UTILS.click(篝火盛会.x,篝火盛会.y);
+            let 篝火盛会 = UTILS.findImage(IMAGE.篝火盛会, 1, 2, 0.7);
+            UTILS.log(篝火盛会 + '篝火盛会');
+            UTILS.click(篝火盛会.x, 篝火盛会.y);
             sleep(2000);
-            let 篝火 = UTILS.findImage(IMAGE.篝火,2,1,0.7);
-            UTILS.log(篝火+'篝火');
+            let 篝火 = UTILS.findImage(IMAGE.篝火, 2, 1, 0.7);
+            UTILS.log(篝火 + '篝火');
             sleep(2000);
             let 篝火点击 = setInterval(() => {
-                let 篝火道具 = UTILS.findColorNoClick('#E10302',[[15,10,'#FF0000'],[7,11,'#190A07']],[篝火.x,篝火.y,200,100],20);
-                UTILS.log(篝火道具+'篝火道具');
-                if(篝火道具 != null){
+                let 篝火道具 = UTILS.findColorNoClick('#E10302', [[15, 10, '#FF0000'], [7, 11, '#190A07']], [篝火.x, 篝火.y, 200, 100], 20);
+                UTILS.log(篝火道具 + '篝火道具');
+                if (篝火道具 != null) {
                     UTILS.toastLog('篝火道具不足');
                     sleep(1000);
                     clearInterval(篝火点击);
                     sleep(2000);
                     this.点击返回按钮();
                     sleep(2000);
-                    let 行会boss = UTILS.findImage(IMAGE.行会boss,2,2,0.7);
-                    UTILS.log(行会boss+'行会boss');
+                    let 行会boss = UTILS.findImage(IMAGE.行会boss, 2, 2, 0.7);
+                    UTILS.log(行会boss + '行会boss');
                     sleep(2000);
-                    UTILS.click(行会boss.x,行会boss.y);
+                    UTILS.click(行会boss.x, 行会boss.y);
                     sleep(2000);
-                    
-                    let 完美通关次数 = setInterval(() => { 
-                        let 完美通关 = UTILS.findImageFullScreen(IMAGE.行会boss挑战,0.7);
-                        UTILS.log(完美通关+'完美通关');
-                        sleep(2000); 
-                        if(完美通关 == null){
+
+                    let 完美通关次数 = setInterval(() => {
+                        let 完美通关 = UTILS.findImageFullScreen(IMAGE.行会boss挑战, 0.7);
+                        UTILS.log(完美通关 + '完美通关');
+                        sleep(2000);
+                        if (完美通关 == null) {
                             UTILS.toastLog('行会boss挑战领取完毕');
                             clearInterval(完美通关次数);
-                        }else{
-                            UTILS.click(完美通关.x,完美通关.y);
+                        } else {
+                            UTILS.click(完美通关.x, 完美通关.y);
                             sleep(2000);
-                            let 完美领取 = UTILS.findColorNoClick('#A7551F',[[109,35,'#D1C18E'],[74,29,'#D1C18E']],[],20);
-                            UTILS.log(完美领取+'完美领取');
+                            let 完美领取 = UTILS.findColorNoClick('#A7551F', [[109, 35, '#D1C18E'], [74, 29, '#D1C18E']], [], 20);
+                            UTILS.log(完美领取 + '完美领取');
                             sleep(2000);
-                            UTILS.click(完美领取.x,完美领取.y);
+                            UTILS.click(完美领取.x, 完美领取.y);
                             sleep(4000);
-                            UTILS.click(100,100);
+                            UTILS.click(100, 100);
                         }
-                        
-                        
-                    },10000)
-                }else{
-                    UTILS.click(篝火.x,篝火.y);
+
+
+                    }, 10000)
+                } else {
+                    UTILS.click(篝火.x, 篝火.y);
                 }
-            },2000)
+            }, 2000)
         }
-        
+
 
     }
 
@@ -1088,9 +846,9 @@ let main = function () {
         sleep(3000);
         let 个人boss挑战时间 = setInterval(() => {
             let 个人boss挑战 = UTILS.findImage(IMAGE.boss挑战, 1, 2, 0.7);
-            UTILS.log(个人boss挑战+'个人boss挑战');
+            UTILS.log(个人boss挑战 + '个人boss挑战');
             let 副本 = UTILS.findImage(IMAGE.霸刀无限版, 2, 2);
-            if(个人boss挑战 == null && 副本 == null){
+            if (个人boss挑战 == null && 副本 == null) {
                 clearInterval(个人boss挑战时间);
                 sleep(3000);
                 UTILS.toastLog('个人boss挑战完毕');
@@ -1098,7 +856,7 @@ let main = function () {
                 // let 野外BOSS = UTILS.findImage(IMAGE.野外boss, 1, 2, 0.7);
                 // console.log(野外BOSS, '野外BOSS1');
                 // UTILS.click(野外BOSS.x, 野外BOSS.y);
-            }else if(个人boss挑战 == null && 副本 != null){
+            } else if (个人boss挑战 == null && 副本 != null) {
                 clearInterval(个人boss挑战时间);
                 sleep(3000);
                 UTILS.toastLog('请提升战力');
@@ -1108,22 +866,184 @@ let main = function () {
                 // let 野外BOSS = UTILS.findImage(IMAGE.野外boss, 1, 2, 0.7);
                 // console.log(野外BOSS, '野外BOSS2');
                 // UTILS.click(野外BOSS.x, 野外BOSS.y);
-                
-            }else{
+
+            } else {
                 UTILS.click(个人boss挑战.x, 个人boss挑战.y);
                 sleep(50000);
             }
 
-        },60000)
+        }, 60000)
     }
 
+    this.角色操作 = () => {
+        UTILS.toastLog('开始角色操作');
+        sleep(3000);
+        let 角色 = UTILS.findImage(IMAGE.角色, 1, 2, 0.7);
+        sleep(3000);
+        UTILS.click(角色.x, 角色.y, 0, 0, 50);
+        this.战士角色();
+        sleep(3000);
+        var 判断有没有一键换装 = this.判断有没有一键换装();
+        if (判断有没有一键换装 != null) {
+            this.点击一键换装();
+        }
+        sleep(3000);
+        this.法师角色();
+        sleep(3000);
+        var 判断有没有一键换装 = this.判断有没有一键换装();
+        if (判断有没有一键换装 != null) {
+            this.点击一键换装();
+        }
+        sleep(3000);
+        this.道士角色();
+        sleep(3000);
+        var 判断有没有一键换装 = this.判断有没有一键换装();
+        if (判断有没有一键换装 != null) {
+            this.点击一键换装();
+        }
 
+    }
+
+    this.点击副本挑战s = () => {
+        let 屏幕宽 = UTILS.deviceWidth;
+        let 屏幕高 = UTILS.deviceHeight;
+        UTILS.toastLog('开始副本挑战');
+        sleep(2000);
+        this.点击副本();
+        sleep(2000);
+        UTILS.toastLog('副本挑战开始，请等待');
+        sleep(2000);
+        let 副本挑战时间 = setInterval(() => {
+            let 副本挑战 = UTILS.findImage(IMAGE.副本挑战s, 2, 2, 0.7);
+            UTILS.log(副本挑战 + '副本挑战');
+            var 判断是否在副本模块 = UTILS.findImage(IMAGE.副本页面, 0, 0);
+            sleep(3000);
+            var 返回按钮 = UTILS.findImage(IMAGE.挑战关闭, 2, 0, 0.7);
+            sleep(3000);
+            var 判断是否在首页 = this.判断是否在首页();
+            sleep(3000);
+            if (副本挑战 == null && 返回按钮 != null) {
+                sleep(2000);
+                UTILS.toastLog('请等待boss打完')
+            } else if (副本挑战 == null && 判断是否在副本模块 != null) {
+                clearInterval(副本挑战时间);
+                sleep(2000);
+                UTILS.toastLog('副本挑战完毕,等待扫荡');
+                sleep(3000);
+                UTILS.toastLog('副本扫荡开始，请等待');
+                sleep(2000);
+                let 点击经验副本 = UTILS.findImage(IMAGE.经验副本, 1, 2, 0.7);
+                UTILS.log(点击经验副本 + '点击经验副本');
+                sleep(2000);
+                UTILS.click(点击经验副本.x + 200, 点击经验副本.y);
+                sleep(2000);
+                UTILS.toastLog('经验副本挑战即将开始,请等待');
+                sleep(2000);
+                let 挑战区域Y = UTILS.deviceHeight / 3 * 2;
+                let 挑战区域H = UTILS.deviceHeight / 3;
+                let 领取区域Y = UTILS.deviceHeight / 2;
+                // log(挑战区域Y,挑战区域H)
+                let 经验副本时间 = setInterval(() => {
+                    var 判断是否在副本模块 = UTILS.findImage(IMAGE.副本页面, 0, 0);
+                    sleep(1000);
+                    var 返回按钮 = UTILS.findImage(IMAGE.挑战关闭, 2, 0, 0.7);
+                    sleep(1000);
+                    var 领取经验奖励 = UTILS.findImage(IMAGE.领取经验奖励, 2, 2, 0.7);
+                    sleep(1000);
+                    var 判断是否在首页 = this.判断是否在首页();
+                    sleep(3000);
+                    UTILS.toastLog('经验副本挑战中,请等待');
+                    // let 经验副本挑战 = UTILS.findImage(IMAGE.经验副本挑战s,2,1,0.7);
+                    let 经验副本挑战 = UTILS.findColorNoClick('#713E19', [[12, 41, '#B38352'], [102, 41, '#D1C28F'], [131, 77, '#E3C94E']], [0, 挑战区域Y, 屏幕宽, 挑战区域H], 10);
+                    UTILS.log(经验副本挑战 + '经验副本挑战');
+
+                    if (经验副本挑战 == null && 判断是否在副本模块 != null) {
+                        clearInterval(经验副本时间);
+                        sleep(2000);
+                        UTILS.toastLog('经验副本挑战次数不足，稍后将领取通天塔奖励');
+                        sleep(2000);
+                        // let 点击经验副本 = UTILS.findImage(IMAGE.经验副本, 1, 2, 0.7);
+                        // UTILS.log(点击经验副本 + '通天塔');
+                        // sleep(2000);
+                        // UTILS.click(点击经验副本.x - 200, 点击经验副本.y);
+                        // sleep(2000);
+                        // let 通天塔每日奖励 = UTILS.findImage(IMAGE.通天塔每日奖励s, 2, 0, 0.7);
+                        // UTILS.log(通天塔每日奖励 + '通天塔每日奖励');
+                        // UTILS.click(通天塔每日奖励.x, 通天塔每日奖励.y);
+                        // sleep(2000);
+                        // let 通天塔每日领取 = UTILS.findColorNoClick('#AF6D22', [[75, 24, '#A6531E'], [127, 3, '#DEB039'], [103, 87, '#E8D96F']], [0, 领取区域Y, 屏幕宽, 领取区域Y], 10);
+                        // UTILS.log(通天塔每日领取 + '通天塔每日领取');
+                        // if (通天塔每日领取 == null) {
+                        //     UTILS.toastLog('通天塔每日领取完毕');
+                        // } else {
+                        //     UTILS.click(通天塔每日领取.x, 通天塔每日领取.y);
+                        //     sleep(2000);
+                        //     UTILS.click(通天塔每日领取.x, 通天塔每日领取.y);
+                        //     sleep(2000);
+                        // }
+                    } else if (经验副本挑战 != null){
+                        UTILS.click(经验副本挑战.x, 经验副本挑战.y);
+                        sleep(2000);
+                    }else if(经验副本挑战 == null && 判断是否在副本模块 != null && 领取经验奖励 !=null ){
+                        sleep(2000);
+                        UTILS.click(领取经验奖励.x, 领取经验奖励.y);
+                        sleep(2000);
+                    }else if(经验副本挑战 == null && 返回按钮 != null){
+                        sleep(2000);
+                        UTILS.toastLog('请等待boss打完')
+                    } else if (经验副本挑战 == null && 判断是否在首页 != null) {
+                        sleep(2000);
+                        UTILS.toastLog('请提升战力');
+                        clearInterval(经验副本时间);
+                    } 
+                }, 10000)
+            } else if (副本挑战 == null && 判断是否在首页 != null) {
+                sleep(2000);
+                this.点击副本();
+            } else if (副本挑战 != null) {
+                UTILS.click(副本挑战.x, 副本挑战.y, 0, 30, 200);
+            }
+
+        }, 10000);
+    }
+
+    this.boss挑战s = () => {
+        UTILS.toastLog('开始boss挑战');
+        sleep(3000);
+        let boss = UTILS.findImage(IMAGE.boss, 2, 2, 0.7);
+        UTILS.click(boss.x, boss.y);
+        sleep(3000);
+        let 个人boss时间 = setInterval(() => {
+            var 判断是否在boss页面 = UTILS.findImage(IMAGE.boss页面, 0, 0); 
+            sleep(1000);
+            let 个人boss挑战 = UTILS.findImage(IMAGE.boss挑战, 1, 2, 0.7);
+            sleep(1000);
+            var 判断是否在首页 = this.判断是否在首页();
+            sleep(1000);
+            UTILS.log(个人boss挑战 + '个人boss挑战');
+            if(判断是否在boss页面 != null && 个人boss挑战 == null){
+                clearInterval(个人boss时间);
+                sleep(2000);
+                UTILS.toastLog('个人boss挑战完毕');
+                sleep(2000);
+            }else if(个人boss挑战 == null && 判断是否在首页 != null){
+                clearInterval(个人boss时间);
+                sleep(2000);
+                UTILS.toastLog('请提升战力');
+                sleep(2000);
+            }else if(个人boss挑战 != null && 判断是否在boss页面 != null){
+                UTILS.click(个人boss挑战.x,个人boss挑战.y);
+                sleep(2000);
+            }
+        }, 3000);
+        
+    }
     this.获取当天零点 = () => {
         let myDate = new Date();
         let y = myDate.getFullYear(); //获取当前年份(4位)   
-        let m =myDate.getMonth()+1; //获取当前月份  
+        let m = myDate.getMonth() + 1; //获取当前月份  
         let d = myDate.getDate(); //获取当前日(1-31) 
-        return y+'/'+m+'/'+d;
+        return y + '/' + m + '/' + d;
     }
 
 
