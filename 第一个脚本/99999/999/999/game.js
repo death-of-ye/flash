@@ -69,9 +69,9 @@ let main = function () {
         UTILS.toastLog('开始运行');
         sleep(3000);
         // this.点击副本挑战s();
-        this.boss挑战s();
+        // this.boss挑战s();
         // this.领取无限福利();
-        // this.行会任务();
+        this.行会任务();
         // this.开始副本挑战();
         // this.BOSS挑战();
         // this.角色操作();
