@@ -1,0 +1,24 @@
+﻿﻿{
+	"title": "杀鸡爆神装(无限版)",
+	"desc": [{
+		"item": "<杀鸡爆神装(无限版)>功能介绍:"
+	}],
+  "checkbox": [
+    {
+      "title": "副本任务",
+      "checked": true
+    },
+    {
+      "title": "行会任务",
+      "checked": true
+    },
+    {
+      "title": "无限福利",
+      "checked": true
+    },
+    {
+      "title": "个人boss",
+      "checked": true
+    }
+  ]
+}

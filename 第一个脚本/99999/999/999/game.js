@@ -68,16 +68,15 @@ let main = function () {
 
         UTILS.toastLog('开始运行');
         sleep(3000);
-        setInterval(() => {
-            this.点击背包S();
-        }, 120000);
+        // this.回到主页();
+        // this.点击背包S();
         // this.点击副本挑战s();
         // this.boss挑战s();
-        // this.领取无限福利();
-        // this.行会任务();
-        // this.开始副本挑战();
+        // this.开始领取无限福利();
+        // this.开始行会任务();
         // this.BOSS挑战();
-        this.角色操作();
+        // this.角色操作();
+        this.通天塔挑战();
     }
 
 
@@ -104,15 +103,7 @@ let main = function () {
             }
         }
 
-    }
-
-    this.通天塔挑战 = () => {
-        let arr = [];
-        for (let i = 0; i < 2; i++) {
-            arr.push(UTILS.findImage(IMAGE.通天塔挑战, 0, 3, 0.7))
-        }
-        UTILS.click(arr[1].x, arr[1].y);
-    }
+    } 
 
     this.通天塔挑战失败 = () => {
         let arr = [];
@@ -125,16 +116,6 @@ let main = function () {
                 this.退出通天塔();
             }, 2000)
         }
-    }
-
-
-    this.退出通天塔 = () => {
-        let arr = [];
-        for (let i = 0; i < 2; i++) {
-            arr.push(UTILS.findImage(IMAGE.退出通天塔, 2, 1, 0.7))
-        }
-        UTILS.click(arr[1].x, arr[1].y);
-
     }
 
 
@@ -330,37 +311,6 @@ let main = function () {
         let 战纹装备 = UTILS.findImage(IMAGE.战纹装备, 2, 2, 0.7);
         console.log(战纹装备);
         UTILS.click(战纹装备.x, 战纹装备.y);
-    }
-
-    this.背包熔炼 = () => {
-        let arr = [];
-        for (let i = 0; i < 2; i++) {
-            arr.push(UTILS.findImage(IMAGE.背包熔炼, 1, 2, 0.7))
-        }
-        // console.log(arr);
-        UTILS.click(arr[1].x, arr[1].y);
-    }
-
-    this.背包熔炼_item = () => {
-        let arr = [];
-        for (let i = 0; i < 2; i++) {
-            arr.push(UTILS.findImage(IMAGE.背包熔炼, 1, 2, 0.7))
-        }
-        // console.log(arr);
-        UTILS.click(arr[1].x, arr[1].y);
-    }
-
-    this.熔炼结束 = () => {
-        return UTILS.findImageFullScreen(IMAGE.背包熔炼, 0.7);
-    }
-
-    this.熔炼返回 = () => {
-        let arr = [];
-        for (let i = 0; i < 2; i++) {
-            arr.push(UTILS.findImage(IMAGE.熔炼返回, 2, 2, 0.7))
-        }
-        // console.log(arr);
-        UTILS.click(arr[1].x, arr[1].y);
     }
 
     this.锻造 = () => {
@@ -634,6 +584,22 @@ let main = function () {
 
     }
 
+    this.开始领取无限福利 = () => {
+        let 时间 = setInterval(() => {
+            var 返回按钮 = UTILS.findImage(IMAGE.挑战关闭, 0, 3, 0.7);
+            if(返回按钮 != null){
+                UTILS.click(返回按钮.x,返回按钮.y);
+            }else{
+                sleep(通用休眠时间);
+                clearInterval(时间);
+                sleep(通用休眠时间);
+                UTILS.toastLog('已回到主页');
+                sleep(通用休眠时间);
+                this.领取无限福利();
+            }
+        },通用休眠时间)
+    }
+
     this.领取无限福利 = () => {
         UTILS.toastLog('开始领取无限福利');
         let 无限福利 = UTILS.findImage(IMAGE.无限福利, 0, 1, 0.7);
@@ -678,6 +644,22 @@ let main = function () {
     }
 
 
+    this.开始行会任务 = () => {
+        let 时间 = setInterval(() => {
+            var 返回按钮 = UTILS.findImage(IMAGE.挑战关闭, 0, 3, 0.7);
+            if(返回按钮 != null){
+                UTILS.click(返回按钮.x,返回按钮.y);
+            }else{
+                sleep(通用休眠时间);
+                clearInterval(时间);
+                sleep(通用休眠时间);
+                UTILS.toastLog('已回到主页');
+                sleep(通用休眠时间);
+                this.行会任务();
+            }
+        },通用休眠时间)
+    }
+
     this.行会任务 = () => {
         UTILS.toastLog('行会任务开始');
         let 屏幕宽 = UTILS.deviceWidth;
@@ -690,144 +672,151 @@ let main = function () {
         let 行会大厅 = UTILS.findImage(IMAGE.行会大厅, 2, 1, 0.7);
         log(行会大厅, '行会大厅');
         sleep(3000);
-        UTILS.click(行会大厅.x, 行会大厅.y);
-        sleep(2000);
-        let 行会捐赠 = UTILS.findImage(IMAGE.行会捐赠, 2, 2, 0.7);
-        log(行会捐赠, '行会大厅');
-        sleep(3000);
-        UTILS.click(行会捐赠.x, 行会捐赠.y);
-        sleep(3000);
-
-        let 行会金币捐赠次数 = 0;
-        let 捐赠区域x = UTILS.deviceWidth / 2;
-        let 是否可捐赠 = UTILS.findColorNoClick('#97501A', [[14, 22, '#A6541A'], [25, 15, '#C1894F'], [65, 20, '#C86A1A']], [捐赠区域x, 0, 捐赠区域x, 屏幕高], 20, 0, 30);
-        // log(是否可捐赠+'是否可捐赠');
-        sleep(2000);
-        if (是否可捐赠 != null) {
-            let 行会金币捐赠点击 = setInterval(() => {
-                UTILS.click(是否可捐赠.x, 是否可捐赠.y);
-                行会金币捐赠次数 += 1;
-                if (行会金币捐赠次数 == 10) {
-                    UTILS.toastLog('今天已经捐赠过了，请明天再来');
-                    clearInterval(行会金币捐赠点击);
-                    sleep(2000);
-                    UTILS.click(50, 50);
-                    sleep(1500);
-                    this.点击返回按钮();
-                    sleep(2000);
-                    let 活动大厅 = UTILS.findImage(IMAGE.活动大厅, 2, 2, 0.7);
-                    log(活动大厅, '活动大厅');
-                    UTILS.click(活动大厅.x, 活动大厅.y);
-                    sleep(2000);
-                    let 篝火盛会 = UTILS.findImage(IMAGE.篝火盛会, 1, 2, 0.7);
-                    UTILS.log(篝火盛会 + '篝火盛会');
-                    UTILS.click(篝火盛会.x, 篝火盛会.y);
-                    sleep(2000);
-                    let 篝火 = UTILS.findImage(IMAGE.篝火, 2, 1, 0.7);
-                    UTILS.log(篝火 + '篝火');
-                    sleep(2000);
-                    let 篝火点击 = setInterval(() => {
-                        let 篝火道具 = UTILS.findColorNoClick('#E10302', [[15, 10, '#FF0000'], [7, 11, '#190A07']], [篝火.x, 篝火.y, 200, 100], 20);
-                        UTILS.log(篝火道具 + '篝火道具');
-                        if (篝火道具 != null) {
-                            UTILS.toastLog('篝火道具不足');
-                            sleep(1000);
-                            clearInterval(篝火点击);
-                            sleep(2000);
-                            this.点击返回按钮();
-                            sleep(2000);
-                            let 行会boss = UTILS.findImage(IMAGE.行会boss, 2, 2, 0.7);
-                            UTILS.log(行会boss + '行会boss');
-                            sleep(2000);
-                            UTILS.click(行会boss.x, 行会boss.y);
-                            sleep(2000);
-
-                            let 完美通关次数 = setInterval(() => {
-                                let 完美通关 = UTILS.findImageFullScreen(IMAGE.行会boss挑战, 0.7);
-                                UTILS.log(完美通关 + '完美通关');
-                                sleep(2000);
-                                if (完美通关 == null) {
-                                    UTILS.toastLog('行会boss挑战领取完毕');
-                                    clearInterval(完美通关次数);
-                                } else {
-                                    UTILS.click(完美通关.x, 完美通关.y);
-                                    sleep(2000);
-                                    let 完美领取 = UTILS.findColorNoClick('#A7551F', [[109, 35, '#D1C18E'], [74, 29, '#D1C18E']], [], 20);
-                                    UTILS.log(完美领取 + '完美领取');
-                                    sleep(2000);
-                                    UTILS.click(完美领取.x, 完美领取.y);
-                                    sleep(4000);
-                                    UTILS.click(100, 100);
-                                }
-
-
-                            }, 10000)
-                        } else {
-                            UTILS.click(篝火.x, 篝火.y);
-                        }
-                    }, 2000)
-                }
-            }, 2000);
-        } else {
+        if(行会大厅 != null){
+            UTILS.click(行会大厅.x, 行会大厅.y);
             sleep(2000);
-            UTILS.click(50, 50);
-            sleep(1500);
-            this.点击返回按钮();
+            let 行会捐赠 = UTILS.findImage(IMAGE.行会捐赠, 2, 2, 0.7);
+            log(行会捐赠, '行会大厅');
+            sleep(3000);
+            UTILS.click(行会捐赠.x, 行会捐赠.y);
+            sleep(3000);
+    
+            let 行会金币捐赠次数 = 0;
+            let 捐赠区域x = UTILS.deviceWidth / 2;
+            let 是否可捐赠 = UTILS.findColorNoClick('#97501A', [[14, 22, '#A6541A'], [25, 15, '#C1894F'], [65, 20, '#C86A1A']], [捐赠区域x, 0, 捐赠区域x, 屏幕高], 20, 0, 30);
+            // log(是否可捐赠+'是否可捐赠');
             sleep(2000);
-            let 活动大厅 = UTILS.findImage(IMAGE.活动大厅, 2, 2, 0.7);
-            log(活动大厅, '活动大厅');
-            UTILS.click(活动大厅.x, 活动大厅.y);
-            sleep(2000);
-            let 篝火盛会 = UTILS.findImage(IMAGE.篝火盛会, 1, 2, 0.7);
-            UTILS.log(篝火盛会 + '篝火盛会');
-            UTILS.click(篝火盛会.x, 篝火盛会.y);
-            sleep(2000);
-            let 篝火 = UTILS.findImage(IMAGE.篝火, 2, 1, 0.7);
-            UTILS.log(篝火 + '篝火');
-            sleep(2000);
-            let 篝火点击 = setInterval(() => {
-                let 篝火道具 = UTILS.findColorNoClick('#E10302', [[15, 10, '#FF0000'], [7, 11, '#190A07']], [篝火.x, 篝火.y, 200, 100], 20);
-                UTILS.log(篝火道具 + '篝火道具');
-                if (篝火道具 != null) {
-                    UTILS.toastLog('篝火道具不足');
-                    sleep(1000);
-                    clearInterval(篝火点击);
-                    sleep(2000);
-                    this.点击返回按钮();
-                    sleep(2000);
-                    let 行会boss = UTILS.findImage(IMAGE.行会boss, 2, 2, 0.7);
-                    UTILS.log(行会boss + '行会boss');
-                    sleep(2000);
-                    UTILS.click(行会boss.x, 行会boss.y);
-                    sleep(2000);
-
-                    let 完美通关次数 = setInterval(() => {
-                        let 完美通关 = UTILS.findImageFullScreen(IMAGE.行会boss挑战, 0.7);
-                        UTILS.log(完美通关 + '完美通关');
+            if (是否可捐赠 != null) {
+                let 行会金币捐赠点击 = setInterval(() => {
+                    UTILS.click(是否可捐赠.x, 是否可捐赠.y);
+                    行会金币捐赠次数 += 1;
+                    if (行会金币捐赠次数 == 10) {
+                        UTILS.toastLog('今天已经捐赠完毕，请明天再来');
+                        clearInterval(行会金币捐赠点击);
                         sleep(2000);
-                        if (完美通关 == null) {
-                            UTILS.toastLog('行会boss挑战领取完毕');
-                            clearInterval(完美通关次数);
-                        } else {
-                            UTILS.click(完美通关.x, 完美通关.y);
+                        UTILS.click(50, 50);
+                        sleep(1500);
+                        this.点击返回按钮();
+                        sleep(2000);
+                        let 活动大厅 = UTILS.findImage(IMAGE.活动大厅, 2, 2, 0.7);
+                        log(活动大厅, '活动大厅');
+                        UTILS.click(活动大厅.x, 活动大厅.y);
+                        sleep(2000);
+                        let 篝火盛会 = UTILS.findImage(IMAGE.篝火盛会, 1, 2, 0.7);
+                        UTILS.log(篝火盛会 + '篝火盛会');
+                        UTILS.click(篝火盛会.x, 篝火盛会.y);
+                        sleep(2000);
+                        let 篝火 = UTILS.findImage(IMAGE.篝火, 2, 1, 0.7);
+                        UTILS.log(篝火 + '篝火');
+                        sleep(2000);
+                        let 篝火点击 = setInterval(() => {
+                            let 篝火道具 = UTILS.findColorNoClick('#E10302', [[15, 10, '#FF0000'], [7, 11, '#190A07']], [篝火.x, 篝火.y, 200, 100], 20);
+                            UTILS.log(篝火道具 + '篝火道具');
+                            if (篝火道具 != null) {
+                                UTILS.toastLog('篝火道具不足');
+                                sleep(1000);
+                                clearInterval(篝火点击);
+                                sleep(2000);
+                                this.点击返回按钮();
+                                sleep(2000);
+                                let 行会boss = UTILS.findImage(IMAGE.行会boss, 2, 2, 0.7);
+                                UTILS.log(行会boss + '行会boss');
+                                sleep(2000);
+                                UTILS.click(行会boss.x, 行会boss.y);
+                                sleep(2000);
+    
+                                let 完美通关次数 = setInterval(() => {
+                                    let 完美通关 = UTILS.findImageFullScreen(IMAGE.行会boss挑战, 0.7);
+                                    UTILS.log(完美通关 + '完美通关');
+                                    sleep(2000);
+                                    if (完美通关 == null) {
+                                        UTILS.toastLog('行会boss挑战领取完毕');
+                                        clearInterval(完美通关次数);
+                                    } else {
+                                        UTILS.click(完美通关.x, 完美通关.y);
+                                        sleep(2000);
+                                        let 完美领取 = UTILS.findColorNoClick('#A7551F', [[109, 35, '#D1C18E'], [74, 29, '#D1C18E']], [], 20);
+                                        UTILS.log(完美领取 + '完美领取');
+                                        sleep(2000);
+                                        UTILS.click(完美领取.x, 完美领取.y);
+                                        sleep(4000);
+                                        UTILS.click(100, 100);
+                                    }
+    
+    
+                                }, 10000)
+                            } else {
+                                UTILS.click(篝火.x, 篝火.y);
+                            }
+                        }, 2000)
+                    }
+                }, 2000);
+            } else {
+                sleep(2000);
+                UTILS.click(50, 50);
+                sleep(1500);
+                this.点击返回按钮();
+                sleep(2000);
+                let 活动大厅 = UTILS.findImage(IMAGE.活动大厅, 2, 2, 0.7);
+                log(活动大厅, '活动大厅');
+                UTILS.click(活动大厅.x, 活动大厅.y);
+                sleep(2000);
+                let 篝火盛会 = UTILS.findImage(IMAGE.篝火盛会, 1, 2, 0.7);
+                UTILS.log(篝火盛会 + '篝火盛会');
+                UTILS.click(篝火盛会.x, 篝火盛会.y);
+                sleep(2000);
+                let 篝火 = UTILS.findImage(IMAGE.篝火, 2, 1, 0.7);
+                UTILS.log(篝火 + '篝火');
+                sleep(2000);
+                let 篝火点击 = setInterval(() => {
+                    let 篝火道具 = UTILS.findColorNoClick('#E10302', [[15, 10, '#FF0000'], [7, 11, '#190A07']], [篝火.x, 篝火.y, 200, 100], 20);
+                    UTILS.log(篝火道具 + '篝火道具');
+                    if (篝火道具 != null) {
+                        UTILS.toastLog('篝火道具不足');
+                        sleep(1000);
+                        clearInterval(篝火点击);
+                        sleep(2000);
+                        this.点击返回按钮();
+                        sleep(2000);
+                        let 行会boss = UTILS.findImage(IMAGE.行会boss, 2, 2, 0.7);
+                        UTILS.log(行会boss + '行会boss');
+                        sleep(2000);
+                        UTILS.click(行会boss.x, 行会boss.y);
+                        sleep(2000);
+    
+                        let 完美通关次数 = setInterval(() => {
+                            let 完美通关 = UTILS.findImageFullScreen(IMAGE.行会boss挑战, 0.7);
+                            UTILS.log(完美通关 + '完美通关');
                             sleep(2000);
-                            let 完美领取 = UTILS.findColorNoClick('#A7551F', [[109, 35, '#D1C18E'], [74, 29, '#D1C18E']], [], 20);
-                            UTILS.log(完美领取 + '完美领取');
-                            sleep(2000);
-                            UTILS.click(完美领取.x, 完美领取.y);
-                            sleep(4000);
-                            UTILS.click(100, 100);
-                        }
-
-
-                    }, 10000)
-                } else {
-                    UTILS.click(篝火.x, 篝火.y);
-                }
-            }, 2000)
+                            if (完美通关 == null) {
+                                UTILS.toastLog('行会boss挑战领取完毕');
+                                clearInterval(完美通关次数);
+                                sleep(通用休眠时间);
+                                this.回到主页();
+                            } else {
+                                UTILS.click(完美通关.x, 完美通关.y);
+                                sleep(2000);
+                                let 完美领取 = UTILS.findColorNoClick('#A7551F', [[109, 35, '#D1C18E'], [74, 29, '#D1C18E']], [], 20);
+                                UTILS.log(完美领取 + '完美领取');
+                                sleep(2000);
+                                UTILS.click(完美领取.x, 完美领取.y);
+                                sleep(4000);
+                                UTILS.click(100, 100);
+                            }
+    
+    
+                        }, 10000)
+                    } else {
+                        UTILS.click(篝火.x, 篝火.y);
+                    }
+                }, 2000)
+            }
+        }else{
+            sleep(通用休眠时间);
+            UTILS.toastLog('请加入行会');
+            sleep(通用休眠时间);
+            UTILS.click(100,100);
         }
-
-
     }
 
 
@@ -898,138 +887,202 @@ let main = function () {
     }
 
     this.点击副本挑战s = () => {
-        let 屏幕宽 = UTILS.deviceWidth;
-        let 屏幕高 = UTILS.deviceHeight;
-        UTILS.toastLog('开始副本挑战');
-        sleep(2000);
-        this.点击副本();
-        sleep(2000);
-        UTILS.toastLog('副本挑战开始，请等待');
-        sleep(2000);
-        let 副本挑战时间 = setInterval(() => {
-            let 副本挑战 = UTILS.findImage(IMAGE.副本挑战s, 2, 2, 0.7);
-            UTILS.log(副本挑战 + '副本挑战');
-            var 判断是否在副本模块 = UTILS.findImage(IMAGE.副本页面, 0, 0);
-            sleep(3000);
-            var 返回按钮 = UTILS.findImage(IMAGE.挑战关闭, 2, 0, 0.7);
-            sleep(3000);
-            var 判断是否在首页 = this.判断是否在首页();
-            sleep(3000);
-            if (副本挑战 == null && 返回按钮 != null) {
-                sleep(2000);
-                UTILS.toastLog('请等待boss打完')
-            } else if (副本挑战 == null && 判断是否在副本模块 != null) {
-                clearInterval(副本挑战时间);
-                sleep(2000);
-                UTILS.toastLog('副本挑战完毕,等待扫荡');
-                sleep(3000);
-                UTILS.toastLog('副本扫荡开始，请等待');
-                sleep(2000);
-                let 点击经验副本 = UTILS.findImage(IMAGE.经验副本, 1, 2, 0.7);
-                UTILS.log(点击经验副本 + '点击经验副本');
-                sleep(2000);
-                UTILS.click(点击经验副本.x + 200, 点击经验副本.y);
-                sleep(2000);
-                UTILS.toastLog('经验副本挑战即将开始,请等待');
-                sleep(2000);
-                let 挑战区域Y = UTILS.deviceHeight / 3 * 2;
-                let 挑战区域H = UTILS.deviceHeight / 3;
-                let 领取区域Y = UTILS.deviceHeight / 2;
-                // log(挑战区域Y,挑战区域H)
-                let 经验副本时间 = setInterval(() => {
-                    var 判断是否在副本模块 = UTILS.findImage(IMAGE.副本页面, 0, 0);
-                    sleep(1000);
-                    var 返回按钮 = UTILS.findImage(IMAGE.挑战关闭, 2, 0, 0.7);
-                    sleep(1000);
-                    var 领取经验奖励 = UTILS.findImage(IMAGE.领取经验奖励, 2, 2, 0.7);
-                    sleep(1000);
-                    var 判断是否在首页 = this.判断是否在首页();
-                    sleep(3000);
-                    UTILS.toastLog('经验副本挑战中,请等待');
-                    // let 经验副本挑战 = UTILS.findImage(IMAGE.经验副本挑战s,2,1,0.7);
-                    let 经验副本挑战 = UTILS.findColorNoClick('#713E19', [[12, 41, '#B38352'], [102, 41, '#D1C28F'], [131, 77, '#E3C94E']], [0, 挑战区域Y, 屏幕宽, 挑战区域H], 10);
-                    UTILS.log(经验副本挑战 + '经验副本挑战');
+        var 背包 = UTILS.findImage(IMAGE.背包, 1, 2, 0.7);
+        sleep(通用休眠时间);
+        UTILS.click(背包.x,背包.y);
+        sleep(通用休眠时间);
+        var 背包熔炼 = UTILS.findImage(IMAGE.背包熔炼, 0, 3, 0.7);
+        log(背包熔炼)
+        sleep(通用休眠时间);
+        UTILS.log(背包熔炼 + '背包熔炼');
+        if(背包熔炼 != null){
+            UTILS.click(背包熔炼.x,背包熔炼.y);
+            sleep(通用休眠时间);
+            var 熔炼 =  UTILS.findColorNoClick('#804C22', [[17, 47, '#853B0D'], [117, 51, '#D1C28F'], [272, 47, '#673013']], [0,0,UTILS.deviceWidth/2,UTILS.deviceHeight], 20);
+            UTILS.log(熔炼 + '熔炼按钮');
+            sleep(通用休眠时间);
+            let 熔炼时间 = setInterval(() => {
+                var 是否熔炼 = UTILS.customAreaFindImageNoClick(IMAGE.熔炼结束,0,0,UTILS.deviceWidth/3,UTILS.deviceHeight/2,0,0,0.7);
+                sleep(通用休眠时间);
+                UTILS.log(是否熔炼+'是否熔炼');
+                sleep(通用休眠时间);
+                if(是否熔炼 != null){
+                    clearInterval(熔炼时间);
+                    sleep(通用休眠时间);
+                    UTILS.click(100,100);
+                    sleep(通用休眠时间);
+                    let 屏幕宽 = UTILS.deviceWidth;
+                    let 屏幕高 = UTILS.deviceHeight;
+                    UTILS.toastLog('开始副本挑战');
+                    sleep(2000);
+                    this.点击副本();
+                    sleep(2000);
+                    UTILS.toastLog('副本挑战开始，请等待');
+                    sleep(2000);
+                    let 副本挑战时间 = setInterval(() => {
+                        let 副本挑战 = UTILS.findImage(IMAGE.副本挑战s, 2, 2, 0.7);
+                        UTILS.log(副本挑战 + '副本挑战');
+                        var 判断是否在副本模块 = UTILS.findImage(IMAGE.副本页面, 0, 0);
+                        sleep(3000);
+                        var 返回按钮 = UTILS.findImage(IMAGE.挑战关闭, 2, 0, 0.7);
+                        sleep(3000);
+                        var 判断是否在首页 = this.判断是否在首页();
+                        sleep(3000);
+                        if (副本挑战 == null && 返回按钮 != null) {
+                            sleep(2000);
+                            UTILS.toastLog('请等待boss打完')
+                        } else if (副本挑战 == null && 判断是否在副本模块 != null) {
+                            clearInterval(副本挑战时间);
+                            sleep(2000);
+                            UTILS.toastLog('副本挑战完毕,等待扫荡');
+                            sleep(3000);
+                            UTILS.toastLog('副本扫荡开始，请等待');
+                            sleep(2000);
+                            let 点击经验副本 = UTILS.findImage(IMAGE.经验副本, 1, 2, 0.7);
+                            UTILS.log(点击经验副本 + '点击经验副本');
+                            sleep(2000);
+                            UTILS.click(点击经验副本.x + 200, 点击经验副本.y);
+                            sleep(2000);
+                            UTILS.toastLog('经验副本挑战即将开始,请等待');
+                            sleep(2000);
+                            let 挑战区域Y = UTILS.deviceHeight / 3 * 2;
+                            let 挑战区域H = UTILS.deviceHeight / 3;
+                            let 领取区域Y = UTILS.deviceHeight / 2;
+                            // log(挑战区域Y,挑战区域H)
+                            let 经验副本时间 = setInterval(() => {
+                                var 判断是否在副本模块 = UTILS.findImage(IMAGE.副本页面, 0, 0);
+                                sleep(1000);
+                                var 返回按钮 = UTILS.findImage(IMAGE.挑战关闭, 2, 0, 0.7);
+                                sleep(1000);
+                                var 领取经验奖励 = UTILS.findImage(IMAGE.领取经验奖励, 2, 2, 0.7);
+                                sleep(1000);
+                                var 判断是否在首页 = this.判断是否在首页();
+                                sleep(3000);
+                                UTILS.toastLog('经验副本挑战中,请等待');
+                                // let 经验副本挑战 = UTILS.findImage(IMAGE.经验副本挑战s,2,1,0.7);
+                                let 经验副本挑战 = UTILS.findColorNoClick('#713E19', [[12, 41, '#B38352'], [102, 41, '#D1C28F'], [131, 77, '#E3C94E']], [0, 挑战区域Y, 屏幕宽, 挑战区域H], 10);
+                                UTILS.log(经验副本挑战 + '经验副本挑战');
 
-                    if (经验副本挑战 == null && 判断是否在副本模块 != null) {
-                        clearInterval(经验副本时间);
-                        sleep(2000);
-                        UTILS.toastLog('经验副本挑战次数不足，稍后将领取通天塔奖励');
-                        sleep(2000);
-                        // let 点击经验副本 = UTILS.findImage(IMAGE.经验副本, 1, 2, 0.7);
-                        // UTILS.log(点击经验副本 + '通天塔');
-                        // sleep(2000);
-                        // UTILS.click(点击经验副本.x - 200, 点击经验副本.y);
-                        // sleep(2000);
-                        // let 通天塔每日奖励 = UTILS.findImage(IMAGE.通天塔每日奖励s, 2, 0, 0.7);
-                        // UTILS.log(通天塔每日奖励 + '通天塔每日奖励');
-                        // UTILS.click(通天塔每日奖励.x, 通天塔每日奖励.y);
-                        // sleep(2000);
-                        // let 通天塔每日领取 = UTILS.findColorNoClick('#AF6D22', [[75, 24, '#A6531E'], [127, 3, '#DEB039'], [103, 87, '#E8D96F']], [0, 领取区域Y, 屏幕宽, 领取区域Y], 10);
-                        // UTILS.log(通天塔每日领取 + '通天塔每日领取');
-                        // if (通天塔每日领取 == null) {
-                        //     UTILS.toastLog('通天塔每日领取完毕');
-                        // } else {
-                        //     UTILS.click(通天塔每日领取.x, 通天塔每日领取.y);
-                        //     sleep(2000);
-                        //     UTILS.click(通天塔每日领取.x, 通天塔每日领取.y);
-                        //     sleep(2000);
-                        // }
-                    } else if (经验副本挑战 != null){
-                        UTILS.click(经验副本挑战.x, 经验副本挑战.y);
-                        sleep(2000);
-                    }else if(经验副本挑战 == null && 判断是否在副本模块 != null && 领取经验奖励 !=null ){
-                        sleep(2000);
-                        UTILS.click(领取经验奖励.x, 领取经验奖励.y);
-                        sleep(2000);
-                    }else if(经验副本挑战 == null && 返回按钮 != null){
-                        sleep(2000);
-                        UTILS.toastLog('请等待boss打完')
-                    } else if (经验副本挑战 == null && 判断是否在首页 != null) {
-                        sleep(2000);
-                        UTILS.toastLog('请提升战力');
-                        clearInterval(经验副本时间);
-                    } 
-                }, 10000)
-            } else if (副本挑战 == null && 判断是否在首页 != null) {
-                sleep(2000);
-                this.点击副本();
-            } else if (副本挑战 != null) {
-                UTILS.click(副本挑战.x, 副本挑战.y, 0, 30, 200);
-            }
-
-        }, 10000);
+                                if (经验副本挑战 == null && 判断是否在副本模块 != null) {
+                                    clearInterval(经验副本时间);
+                                    sleep(2000);
+                                    UTILS.toastLog('经验副本挑战次数不足，稍后将领取通天塔奖励');
+                                    sleep(2000);
+                                    let 点击经验副本 = UTILS.findImage(IMAGE.经验副本, 1, 2, 0.7);
+                                    UTILS.log(点击经验副本 + '通天塔');
+                                    sleep(2000);
+                                    UTILS.click(点击经验副本.x - 200, 点击经验副本.y);
+                                    sleep(2000);
+                                    let 通天塔每日奖励 = UTILS.findImage(IMAGE.通天塔每日奖励s, 2, 0, 0.7);
+                                    UTILS.log(通天塔每日奖励 + '通天塔每日奖励');
+                                    UTILS.click(通天塔每日奖励.x, 通天塔每日奖励.y);
+                                    sleep(2000);
+                                    let 通天塔每日领取 = UTILS.findColorNoClick('#AF6D22', [[75, 24, '#A6531E'], [127, 3, '#DEB039'], [103, 87, '#E8D96F']], [0, 领取区域Y, 屏幕宽, 领取区域Y], 10);
+                                    UTILS.log(通天塔每日领取 + '通天塔每日领取');
+                                    if (通天塔每日领取 == null) {
+                                        UTILS.toastLog('通天塔每日领取完毕');
+                                    } else {
+                                        UTILS.click(通天塔每日领取.x, 通天塔每日领取.y);
+                                        sleep(2000);
+                                        UTILS.click(通天塔每日领取.x, 通天塔每日领取.y);
+                                        sleep(2000);
+                                    }
+                                } else if (经验副本挑战 != null){
+                                    UTILS.click(经验副本挑战.x, 经验副本挑战.y);
+                                    sleep(2000);
+                                }else if(经验副本挑战 == null && 判断是否在副本模块 != null && 领取经验奖励 !=null ){
+                                    sleep(2000);
+                                    UTILS.click(领取经验奖励.x, 领取经验奖励.y);
+                                    sleep(2000);
+                                }else if(经验副本挑战 == null && 返回按钮 != null){
+                                    sleep(2000);
+                                    UTILS.toastLog('请等待boss打完')
+                                } else if (经验副本挑战 == null && 判断是否在首页 != null) {
+                                    sleep(2000);
+                                    UTILS.toastLog('请提升战力');
+                                    clearInterval(经验副本时间);
+                                    sleep(通用休眠时间);
+                                    this.点击副本();
+                                    sleep(通用休眠时间);
+                                } 
+                                }, 10000)
+                                } else if (副本挑战 == null && 判断是否在首页 != null) {
+                                    sleep(2000);
+                                    this.点击副本();
+                                    sleep(2000);
+                                } else if (副本挑战 != null) {
+                                    UTILS.click(副本挑战.x, 副本挑战.y, 0, 30, 200);
+                                }
+                                }, 10000);
+                }else{
+                    UTILS.click(熔炼.x,熔炼.y);
+                    sleep(通用休眠时间);
+                }
+            }, 1000);
+            
+        }   
     }
 
     this.boss挑战s = () => {
-        UTILS.toastLog('开始boss挑战');
-        sleep(3000);
-        let boss = UTILS.findImage(IMAGE.boss, 2, 2, 0.7);
-        UTILS.click(boss.x, boss.y);
-        sleep(3000);
-        let 个人boss时间 = setInterval(() => {
-            var 判断是否在boss页面 = UTILS.findImage(IMAGE.boss页面, 0, 0); 
-            sleep(1000);
-            let 个人boss挑战 = UTILS.findImage(IMAGE.boss挑战, 1, 2, 0.7);
-            sleep(1000);
-            var 判断是否在首页 = this.判断是否在首页();
-            sleep(1000);
-            UTILS.log(个人boss挑战 + '个人boss挑战');
-            if(判断是否在boss页面 != null && 个人boss挑战 == null){
-                clearInterval(个人boss时间);
-                sleep(2000);
-                UTILS.toastLog('个人boss挑战完毕');
-                sleep(2000);
-            }else if(个人boss挑战 == null && 判断是否在首页 != null){
-                clearInterval(个人boss时间);
-                sleep(2000);
-                UTILS.toastLog('请提升战力');
-                sleep(2000);
-            }else if(个人boss挑战 != null && 判断是否在boss页面 != null){
-                UTILS.click(个人boss挑战.x,个人boss挑战.y);
-                sleep(2000);
-            }
-        }, 3000);
-        
+        var 背包 = UTILS.findImage(IMAGE.背包, 1, 2, 0.7);
+        sleep(通用休眠时间);
+        UTILS.click(背包.x,背包.y);
+        sleep(通用休眠时间);
+        var 背包熔炼 = UTILS.findImage(IMAGE.背包熔炼, 0, 3, 0.7);
+        log(背包熔炼)
+        sleep(通用休眠时间);
+        UTILS.log(背包熔炼 + '背包熔炼');
+        if(背包熔炼 != null){
+            UTILS.click(背包熔炼.x,背包熔炼.y);
+            sleep(通用休眠时间);
+            var 熔炼 =  UTILS.findColorNoClick('#804C22', [[17, 47, '#853B0D'], [117, 51, '#D1C28F'], [272, 47, '#673013']], [0,0,UTILS.deviceWidth/2,UTILS.deviceHeight], 20);
+            UTILS.log(熔炼 + '熔炼按钮');
+            sleep(通用休眠时间);
+            let 熔炼时间 = setInterval(() => {
+                var 是否熔炼 = UTILS.customAreaFindImageNoClick(IMAGE.熔炼结束,0,0,UTILS.deviceWidth/3,UTILS.deviceHeight/2,0,0,0.7);
+                sleep(通用休眠时间);
+                UTILS.log(是否熔炼+'是否熔炼');
+                sleep(通用休眠时间);
+                if(是否熔炼 != null){
+                    clearInterval(熔炼时间);
+                    sleep(通用休眠时间);
+                    UTILS.click(100,100);
+                    sleep(通用休眠时间);
+                    UTILS.toastLog('开始boss挑战');
+                    sleep(3000);
+                    let boss = UTILS.findImage(IMAGE.boss, 2, 2, 0.7);
+                    UTILS.click(boss.x, boss.y);
+                    sleep(3000);
+                    let 个人boss时间 = setInterval(() => {
+                        var 判断是否在boss页面 = UTILS.findImage(IMAGE.boss页面, 0, 0); 
+                        sleep(1000);
+                        let 个人boss挑战 = UTILS.findImage(IMAGE.boss挑战, 1, 2, 0.7);
+                        sleep(1000);
+                        var 判断是否在首页 = this.判断是否在首页();
+                        sleep(1000);
+                        UTILS.log(个人boss挑战 + '个人boss挑战');
+                        if(判断是否在boss页面 != null && 个人boss挑战 == null){
+                            clearInterval(个人boss时间);
+                            sleep(2000);
+                            UTILS.toastLog('个人boss挑战完毕');
+                            sleep(2000);
+                        }else if(个人boss挑战 == null && 判断是否在首页 != null){
+                            clearInterval(个人boss时间);
+                            sleep(2000);
+                            UTILS.toastLog('请提升战力');
+                            sleep(2000);
+                        }else if(个人boss挑战 != null && 判断是否在boss页面 != null){
+                            UTILS.click(个人boss挑战.x,个人boss挑战.y);
+                            sleep(2000);
+                        }
+                    }, 3000);
+                }else{
+                    UTILS.click(熔炼.x,熔炼.y);
+                    sleep(通用休眠时间);
+                }
+            }, 1000);
+            
+        }   
     }
 
 
@@ -1038,7 +1091,8 @@ let main = function () {
         sleep(通用休眠时间);
         UTILS.click(背包.x,背包.y);
         sleep(通用休眠时间);
-        var 背包熔炼 = UTILS.findImage(IMAGE.背包熔炼, 1, 2, 0.7);
+        var 背包熔炼 = UTILS.findImage(IMAGE.背包熔炼, 0, 3, 0.7);
+        log(背包熔炼)
         sleep(通用休眠时间);
         UTILS.log(背包熔炼 + '背包熔炼');
         if(背包熔炼 != null){
@@ -1065,12 +1119,49 @@ let main = function () {
         }
 
     }
-    this.获取当天零点 = () => {
-        let myDate = new Date();
-        let y = myDate.getFullYear(); //获取当前年份(4位)   
-        let m = myDate.getMonth() + 1; //获取当前月份  
-        let d = myDate.getDate(); //获取当前日(1-31) 
-        return y + '/' + m + '/' + d;
+    this.回到主页 = () => {
+        var 时间 = setInterval(() => {
+            var 返回按钮 = UTILS.findImage(IMAGE.挑战关闭, 0, 3, 0.7);
+            if(返回按钮 != null){
+                UTILS.click(返回按钮.x,返回按钮.y);
+            }else{
+                sleep(通用休眠时间);
+                clearInterval(时间);
+                sleep(通用休眠时间);
+                UTILS.toastLog('已回到主页')
+            }
+        },通用休眠时间)
+        
+    }
+
+
+    this.通天塔挑战 = () => {
+        let 点击经验副本 = UTILS.findImage(IMAGE.经验副本, 1, 2, 0.7);
+        UTILS.log(点击经验副本 + '通天塔');
+        sleep(2000);
+        UTILS.click(点击经验副本.x + 200, 点击经验副本.y);
+        sleep(2000);
+        let 通天塔每日奖励 = UTILS.findImage(IMAGE.通天塔每日奖励s, 2, 0, 0.7);
+        UTILS.log(通天塔每日奖励 + '通天塔每日奖励');
+        UTILS.click(通天塔每日奖励.x, 通天塔每日奖励.y);
+        sleep(2000);
+        let 通天塔每日领取 = UTILS.findColorNoClick('#AF6D22', [[75, 24, '#A6531E'], [127, 3, '#DEB039'], [103, 87, '#E8D96F']], [0, UTILS.deviceHeight / 2, UTILS.deviceWidth, UTILS.deviceHeight / 2], 10);
+        UTILS.log(通天塔每日领取 + '通天塔每日领取');
+        if (通天塔每日领取 == null) {
+            UTILS.toastLog('通天塔每日领取完毕');
+        } else {
+            UTILS.click(通天塔每日领取.x, 通天塔每日领取.y);
+            sleep(2000);
+            UTILS.click(通天塔每日领取.x, 通天塔每日领取.y);
+            sleep(2000);
+            let 通天塔挑战时间 = setInterval(() => {
+                var 通天塔挑战 =  UTILS.findImage(IMAGE.通天塔挑战, 0, 3, 0.7);
+                if(通天塔挑战 != null){
+                    UTILS.click(通天塔挑战.x,通天塔挑战.y);
+                    sleep(通用休眠时间);
+                }
+            },1000)
+        }
     }
 
 
