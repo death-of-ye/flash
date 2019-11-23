@@ -11,10 +11,10 @@ let auxiliaryId = 999;
 let version = 999;
 //指定文件路径"./sdcard/                                    脚本/游戏ID/脚本ID/版本ID/config.json";
 let filePath = "/storage/emulated/0/sdcard/脚本/" + gameId + "/" + auxiliaryId + "/" + version + "/config.json";
-let 是否执行新手任务 = false;
-let 是否打BOSS任务 = false;
-let 是否打副本任务 = false;
-let 是否打竞技任务 = false;
+let 是否执行新手任务 = true;
+let 是否打BOSS任务 = true;
+let 是否打副本任务 = true;
+let 是否打竞技任务 = true;
 
 let 通用休眠时间 = 1000;
 let 战力提升时间 = new Date();
@@ -68,13 +68,16 @@ let main = function () {
 
         UTILS.toastLog('开始运行');
         sleep(3000);
+        setInterval(() => {
+            this.点击背包S();
+        }, 120000);
         // this.点击副本挑战s();
         // this.boss挑战s();
         // this.领取无限福利();
-        this.行会任务();
+        // this.行会任务();
         // this.开始副本挑战();
         // this.BOSS挑战();
-        // this.角色操作();
+        this.角色操作();
     }
 
 
@@ -327,16 +330,6 @@ let main = function () {
         let 战纹装备 = UTILS.findImage(IMAGE.战纹装备, 2, 2, 0.7);
         console.log(战纹装备);
         UTILS.click(战纹装备.x, 战纹装备.y);
-    }
-
-
-    this.点击背包 = () => {
-        let arr = [];
-        for (let i = 0; i < 2; i++) {
-            arr.push(UTILS.findImage(IMAGE.背包, 1, 2, 0.7))
-        }
-        // console.log(arr);
-        UTILS.click(arr[1].x, arr[1].y);
     }
 
     this.背包熔炼 = () => {
@@ -1037,6 +1030,40 @@ let main = function () {
             }
         }, 3000);
         
+    }
+
+
+    this.点击背包S = () => {
+        var 背包 = UTILS.findImage(IMAGE.背包, 1, 2, 0.7);
+        sleep(通用休眠时间);
+        UTILS.click(背包.x,背包.y);
+        sleep(通用休眠时间);
+        var 背包熔炼 = UTILS.findImage(IMAGE.背包熔炼, 1, 2, 0.7);
+        sleep(通用休眠时间);
+        UTILS.log(背包熔炼 + '背包熔炼');
+        if(背包熔炼 != null){
+            UTILS.click(背包熔炼.x,背包熔炼.y);
+            sleep(通用休眠时间);
+            var 熔炼 =  UTILS.findColorNoClick('#804C22', [[17, 47, '#853B0D'], [117, 51, '#D1C28F'], [272, 47, '#673013']], [0,0,UTILS.deviceWidth/2,UTILS.deviceHeight], 20);
+            UTILS.log(熔炼 + '熔炼按钮');
+            sleep(通用休眠时间);
+            let 熔炼时间 = setInterval(() => {
+                var 是否熔炼 = UTILS.customAreaFindImageNoClick(IMAGE.熔炼结束,0,0,UTILS.deviceWidth/3,UTILS.deviceHeight/2,0,0,0.7);
+                sleep(通用休眠时间);
+                UTILS.log(是否熔炼+'是否熔炼');
+                sleep(通用休眠时间);
+                if(是否熔炼 != null){
+                    clearInterval(熔炼时间);
+                    sleep(通用休眠时间);
+                    UTILS.click(100,100);
+                }else{
+                    UTILS.click(熔炼.x,熔炼.y);
+                    sleep(通用休眠时间);
+                }
+            }, 1000);
+            
+        }
+
     }
     this.获取当天零点 = () => {
         let myDate = new Date();
