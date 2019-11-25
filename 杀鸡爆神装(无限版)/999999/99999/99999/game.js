@@ -73,7 +73,8 @@ let main = function () {
         UTILS.toastLog('开始运行');
         sleep(3000);
         // this.VIP();
-        this.新手任务s();
+        // this.新手任务s();
+        this.日常任务();
         // sleep(3000);
         // this.升阶();
         // this.判断是否在主页();
@@ -488,7 +489,38 @@ let main = function () {
     }
 
 
-    
+    this.日常任务 = () => {
+        var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+        log(日常任务+'开始日常任务');
+        sleep(通用休眠时间*2);
+        if(日常任务){
+            UTILS.click(日常任务.x,日常任务.y);
+            sleep(通用休眠时间*2);
+            var 日常领取时间 = setInterval(() => {
+                var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
+                log(日常领取+'日常领取');
+                sleep(2000);
+                if(日常领取){
+                    sleep(通用休眠时间);
+                    click(日常领取.x,日常领取.y);
+                }else{
+                    clearInterval(日常领取时间);
+                    sleep(通用休眠时间);
+                    var 活跃度领取时间 = setInterval(() => {
+                        var 活跃度领取 = UTILS.findImageFullScreen(IMAGE.其他.活跃度领取,0.7);
+                        log(活跃度领取+'活跃度领取');
+                        sleep(2000);
+                        if(活跃度领取){
+                            sleep(通用休眠时间);
+                            click(活跃度领取.x,活跃度领取.y);
+                        }else{
+                            clearInterval(活跃度领取时间);
+                        }
+                    },通用休眠时间) 
+                }
+            },通用休眠时间)   
+        }
+    }
 
 
 
