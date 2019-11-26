@@ -62,22 +62,23 @@ let main = function () {
     }
 
     this.开始运行 = () => {
-       
-        // var 副本挑战 = UTILS.findImage(IMAGE.副本.副本挑战,2,1,0.7);
-        //         log(副本挑战+'副本挑战');
-        //     sleep(2000);
-        //     UTILS.click(副本挑战.x,副本挑战.y,200)
-        //     // UTILS.click(812,340,200)
-        // // click(858,896);
+        // log()
+        // // var 一键强化 = UTILS.findImage(IMAGE.锻造.一键强化,2,2,0.7);
+        // // log(一键强化+'一键强化');
+        // // sleep(通用休眠时间*2);
+        // var 副本扫荡 = UTILS.findImage(IMAGE.其他.副本扫荡,2,2,0.7);
+        // log(副本扫荡+'副本扫荡');
+        // sleep(通用休眠时间*2);
         // return;
         UTILS.toastLog('开始运行');
         sleep(3000);
         // this.VIP();
         // this.新手任务s();
-        this.日常任务();
+        // this.日常任务();
         // sleep(3000);
         // this.升阶();
         // this.判断是否在主页();
+        this.日常任务判断();
     }
 
     this.VIP = () => {
@@ -323,15 +324,6 @@ let main = function () {
         }
     }
 
-
-    this.锻造 = () => {
-        var 锻造 = UTILS.findImage(IMAGE.锻造.锻造,1,2,0.7);
-        log(锻造+'锻造');
-        sleep(2000);
-        UTILS. click(锻造.x,锻造.y)
-    }
-
-
     this.新手任务 = () => {
         sleep(通用休眠时间);
         // var 新手任务 = UTILS.findColorNoClick('#037108',[[22,5,'#06D910'],[17,9,'#037D09'],[51,18,'#037C09']],[0,UTILS.deviceHeight/2,UTILS.deviceWidth/2,200],20);
@@ -381,46 +373,46 @@ let main = function () {
                 sleep(通用休眠时间);
                 var 熔炼 = UTILS.findImage(IMAGE.背包.熔炼,2,0,0.7);
                 log(熔炼+'熔炼');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 var 美人领取 = UTILS.findImage(IMAGE.其他.领取,2,1,0.7);
                 log(美人领取+'美人领取');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 var 美人提升 = UTILS.findImage(IMAGE.其他.美人提升,2,2,0.7);
                 log(美人提升+'美人提升');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 var 首领挑战 = UTILS.findImage(IMAGE.其他.首领挑战,2,2,0.7);
                 log(首领挑战+'首领挑战');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 var 活跃度领取 = UTILS.findImageFullScreen(IMAGE.其他.活跃度领取,0.7);
                 log(活跃度领取+'活跃度领取');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
                 log(日常领取+'日常领取');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 var 副本挑战 = UTILS.findImage(IMAGE.副本.副本挑战,2,1,0.7);
                 log(副本挑战+'副本挑战');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 var 章节领取 = UTILS.findImage(IMAGE.其他.章节领取,2,2,0.7);
                 log(章节领取+'章节领取');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 var 竞技挑战 = UTILS.findImageFullScreen(IMAGE.竞技场.挑战,0.7);
                 log(竞技挑战+'竞技挑战');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 var 膜拜 = UTILS.findImageFullScreen(IMAGE.其他.膜拜,0.7);
                 log(膜拜+'膜拜');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 var 创建军团 = UTILS.findImage(IMAGE.军团.创建军团,2,2,0.7);
                 log(创建军团+'创建军团');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 // var 技能装备 = UTILS.findImage(IMAGE.技能.技能装备,2,2,0.7);
                 // log(技能装备+'技能装备');
-                // sleep(2000);
+                // sleep(通用休眠时间*2);
                 // var 签到 = UTILS.findImageFullScreen(IMAGE.其他.签到,0.7);
                 // log(签到+'签到');
-                // sleep(2000);
+                // sleep(通用休眠时间*2);
                 var 副本进入 = UTILS.findImage(IMAGE.其他.副本进入,2,2,0.7);
                 log(副本进入+'副本进入');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 if(一键换装 != null && 竞技挑战 == null){
                     UTILS.click(一键换装.x,一键换装.y,200);
                 }else if(熔炼){
@@ -446,12 +438,12 @@ let main = function () {
                     click(膜拜.x ,膜拜.y);
                 }else if(创建军团 != null){
                     click(创建军团.x ,创建军团.y);
-                    sleep(2000);
+                    sleep(通用休眠时间*2);
                     setText('殇盟');
-                    sleep(2000);
+                    sleep(通用休眠时间*2);
                     var 创建按钮 = UTILS.findImage(IMAGE.军团.创建按钮,0,3,0.7);
                     log(创建按钮+'创建按钮');
-                    sleep(2000);
+                    sleep(通用休眠时间*2);
                     click(创建按钮.x ,创建按钮.y);
                 }//else if(副本挑战){
                 //     click(副本挑战.x ,副本挑战.y);
@@ -468,7 +460,7 @@ let main = function () {
                 // }
                 else if(副本进入){
                     console.log(11111);
-                    sleep(2000)
+                    sleep(通用休眠时间*2)
                     click(副本进入.x+50,副本进入.y+40); 
                 }
                 sleep(通用休眠时间);
@@ -493,33 +485,436 @@ let main = function () {
         var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
         log(日常任务+'开始日常任务');
         sleep(通用休眠时间*2);
+        return
         if(日常任务){
             UTILS.click(日常任务.x,日常任务.y);
             sleep(通用休眠时间*2);
-            var 日常领取时间 = setInterval(() => {
+            var 任务时间 = setInterval(() => {
+                var 前往任务 = UTILS.findImage(IMAGE.任务.前往任务,2,2,0.7);
+                log(前往任务+'前往任务');
+                sleep(通用休眠时间*2);
+                var 日常标志 = UTILS.findImage(IMAGE.任务.日常标志,1,0,0.7);
+                log(日常标志+'日常标志');
+                sleep(通用休眠时间*2);
+                var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+                log(日常任务+'开始日常任务');
+                sleep(通用休眠时间*2);
+                if(前往任务){
+                    sleep(通用休眠时间);
+                    if(前往任务.x == storage.get('跨服5V5').x && 前往任务.y == storage.get('跨服5V5').y){
+                        UTILS.toastLog('暂未开始');
+                        sleep(通用休眠时间);
+                        click(前往任务.x,前往任务.y + 200 );
+                        sleep(通用休眠时间);
+                        this.日常任务判断();
+                    }else if(前往任务.x == storage.get('魔神首领').x && 前往任务.y == storage.get('魔神首领').y){  
+                        UTILS.toastLog('暂未开始');
+                        sleep(通用休眠时间);
+                        click(前往任务.x,前往任务.y + 200 );
+                        sleep(通用休眠时间);
+                        this.日常任务判断();
+                    }else{
+                        sleep(通用休眠时间);
+                        click(前往任务.x,前往任务.y);
+                        sleep(通用休眠时间);
+                        this.日常任务判断();
+                    }
+                    
+
+                }else if(前往任务 == null && 日常标志 != null){
+                    clearInterval(任务时间);
+                }
+            },通用休眠时间);
+            // var 日常领取时间 = setInterval(() => {
+            //     var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
+            //     log(日常领取+'日常领取');
+            //     sleep(通用休眠时间*2);
+            //     if(日常领取){
+            //         sleep(通用休眠时间);
+            //         click(日常领取.x,日常领取.y);
+            //     }else{
+            //         clearInterval(日常领取时间);
+            //         sleep(通用休眠时间);
+            //         var 活跃度领取时间 = setInterval(() => {
+            //             var 活跃度领取 = UTILS.findImageFullScreen(IMAGE.其他.活跃度领取,0.7);
+            //             log(活跃度领取+'活跃度领取');
+            //             sleep(通用休眠时间*2);
+            //             if(活跃度领取){
+            //                 sleep(通用休眠时间);
+            //                 click(活跃度领取.x,活跃度领取.y);
+            //             }else{
+            //                 clearInterval(活跃度领取时间);
+            //             }
+            //         },通用休眠时间) 
+            //     }
+            // },通用休眠时间)   
+        }
+    }
+
+
+    this.商城购买 = () => {
+        var 商城购买 = UTILS.findImage(IMAGE.商城.商城购买按钮,2,2,0.7);
+        log(商城购买+'商城购买'); 
+        sleep(通用休眠时间*2);
+        var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+        log(日常任务+'开始日常任务');
+        sleep(通用休眠时间*2);
+        if(商城购买){
+            UTILS.click(商城购买.x,商城购买.y);
+        }
+        var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+        sleep(通用休眠时间);
+        if(返回){
+            UTILS.click(返回.x,返回.y);
+        }
+        sleep(通用休眠时间);
+        if(日常任务){
+            UTILS.click(日常任务.x,日常任务.y);
+        }
+        sleep(通用休眠时间*2);
+    }
+
+    this.竞技场挑战 = () => {
+        var 竞技挑战 = UTILS.findImageFullScreen(IMAGE.竞技场.挑战,0.7);
+        log(竞技挑战+'竞技挑战');
+        sleep(通用休眠时间*2);
+        var 匹配对手 = UTILS.findImage(IMAGE.竞技场.匹配对手,2,1,0.7);
+        log(匹配对手+'匹配对手');
+        sleep(通用休眠时间*2);
+        if(竞技挑战){
+            UTILS.click(竞技挑战.x,竞技挑战.y);
+        }else if(匹配对手){
+            UTILS.click(匹配对手.x,匹配对手.y);
+        }
+    }
+
+    this.锻造s = () => {
+        var 锻造 = UTILS.findImage(IMAGE.锻造.锻造,1,2,0.7);
+        log(锻造+'锻造');
+        sleep(通用休眠时间*2);
+        UTILS. click(锻造.x,锻造.y)
+    }
+
+
+    this.日常任务判断 = () => {
+        sleep(通用休眠时间*2);
+        var 日常标志 = UTILS.findImage(IMAGE.任务.日常标志,1,0,0.7);
+        log(日常标志+'日常标志');
+        sleep(通用休眠时间*2);
+        var 商城标志 = UTILS.findImage(IMAGE.商城.商城标志,2,1,0.7);
+        log(商城标志+'商城标志');
+        sleep(通用休眠时间*2);
+        var 竞技挑战 = UTILS.findImageFullScreen(IMAGE.竞技场.挑战,0.7);
+        log(竞技挑战+'竞技挑战');
+        sleep(通用休眠时间*2);
+        var 一键强化 = UTILS.findImage(IMAGE.锻造.一键强化,0,2,0.7);
+        log(一键强化+'一键强化');
+        sleep(通用休眠时间*2);
+        var 强化 = UTILS.findImage(IMAGE.锻造.强化,0,3,0.7);
+        log(强化+'强化');
+        sleep(通用休眠时间*2);
+        var 强化标志 = UTILS.findImage(IMAGE.锻造.强化标志,2,1,0.7);
+        log(强化标志+'强化标志');
+        sleep(通用休眠时间*2);
+        var 宝石标志 = UTILS.findImage(IMAGE.锻造.宝石标志,2,1,0.7);
+        log(宝石标志+'宝石标志');
+        sleep(通用休眠时间*2);
+        var 注灵标志 = UTILS.findImage(IMAGE.锻造.注灵标志,2,1,0.7);
+        log(注灵标志+'注灵标志');
+        sleep(通用休眠时间*2);
+        var 铸魂标志 = UTILS.findImage(IMAGE.锻造.铸魂标志,2,1,0.7);
+        log(铸魂标志+'铸魂标志');
+        sleep(通用休眠时间*2);
+        var 跨服5V5标志 = UTILS.findImage(IMAGE.竞技场.跨服5V5标志,2,1,0.7);
+        log(跨服5V5标志+'跨服5V5标志');
+        sleep(通用休眠时间*2);
+        var 膜拜 = UTILS.findImageFullScreen(IMAGE.其他.膜拜,0.7);
+        log(膜拜+'膜拜');
+        sleep(通用休眠时间*2);
+        var 寻宝标志 = UTILS.findImage(IMAGE.其他.寻宝标志,2,1,0.7);
+        log(寻宝标志+'寻宝标志');
+        sleep(通用休眠时间*2);
+        var 寻宝购买 = UTILS.findImage(IMAGE.其他.寻宝购买,2,1,0.7);
+        log(寻宝购买+'寻宝购买');
+        sleep(通用休眠时间*2);
+        var 神将首领 = UTILS.findImage(IMAGE.其他.神将首领,2,1,0.7);
+        log(神将首领+'神将首领');
+        sleep(通用休眠时间*2);
+        var 神将首领前往 = UTILS.findImage(IMAGE.其他.神将首领前往,2,2,0.7);
+        log(神将首领前往+'寻宝神将首领前往购买');
+        sleep(通用休眠时间*2);
+        var 副本进入 = UTILS.findImage(IMAGE.其他.副本进入,2,2,0.7);
+        log(副本进入+'副本进入');
+        sleep(通用休眠时间*2);
+        var 副本扫荡 = UTILS.findImage(IMAGE.其他.副本扫荡,2,2,0.7);
+        log(副本扫荡+'副本扫荡');
+        sleep(通用休眠时间*2);
+        var 材料副本 = UTILS.findImage(IMAGE.副本.材料副本,2,1,0.7);
+        log(材料副本+'材料副本');
+        sleep(通用休眠时间*2);
+        var 军团标志 = UTILS.findImageFullScreen(IMAGE.军团.军团标志,0.7);
+        log(军团标志+'军团标志');
+        sleep(通用休眠时间*2);
+        // var 魔神首领 = UTILS.findImage(IMAGE.其他.魔神首领,2,1,0.7);
+        // log(魔神首领+'魔神首领');
+        // sleep(通用休眠时间*2);
+        if(商城标志 ){
+            var 商城购买 = UTILS.findImage(IMAGE.商城.商城购买按钮,2,2,0.7);
+            log(商城购买+'商城购买'); 
+            sleep(通用休眠时间*2);
+            if(商城购买){
+                UTILS.click(商城购买.x,商城购买.y,200);
+            }
+            var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+            sleep(通用休眠时间);
+            if(返回){
+                UTILS.click(返回.x,返回.y);
+            }
+            sleep(通用休眠时间);
+            var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+            log(日常任务+'开始日常任务');
+            sleep(通用休眠时间*2);
+            if(日常任务){
+                UTILS.click(日常任务.x,日常任务.y);
+                sleep(通用休眠时间);
                 var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
                 log(日常领取+'日常领取');
-                sleep(2000);
+                sleep(通用休眠时间*2);
                 if(日常领取){
-                    sleep(通用休眠时间);
                     click(日常领取.x,日常领取.y);
-                }else{
-                    clearInterval(日常领取时间);
-                    sleep(通用休眠时间);
-                    var 活跃度领取时间 = setInterval(() => {
-                        var 活跃度领取 = UTILS.findImageFullScreen(IMAGE.其他.活跃度领取,0.7);
-                        log(活跃度领取+'活跃度领取');
-                        sleep(2000);
-                        if(活跃度领取){
-                            sleep(通用休眠时间);
-                            click(活跃度领取.x,活跃度领取.y);
-                        }else{
-                            clearInterval(活跃度领取时间);
-                        }
-                    },通用休眠时间) 
                 }
-            },通用休眠时间)   
-        }
+            }
+        }else if(魔神首领 != null && 寻宝购买 != null){
+            storage.put('魔神首领',前往任务);
+            var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+            sleep(通用休眠时间);
+            if(返回){
+                UTILS.click(返回.x,返回.y);
+            }
+            sleep(通用休眠时间);
+            var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+            log(日常任务+'开始日常任务');
+            sleep(通用休眠时间*2);
+            if(日常任务){
+                UTILS.click(日常任务.x,日常任务.y);
+            }
+            sleep(通用休眠时间*2);
+        }else if(竞技挑战){
+            UTILS.click(竞技挑战.x,竞技挑战.y);
+        }else if(强化标志 != null || 注灵标志 != null && 一键强化 != null && 强化 != null){
+            UTILS.click(一键强化.x+30,一键强化.y+20,200);
+            sleep(通用休眠时间);
+            var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+            sleep(通用休眠时间);
+            if(返回){
+                UTILS.click(返回.x,返回.y);
+            }
+            sleep(通用休眠时间);
+            var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+            log(日常任务+'开始日常任务');
+            sleep(通用休眠时间*2);
+            if(日常任务){
+                UTILS.click(日常任务.x,日常任务.y);
+            }
+            sleep(通用休眠时间*2);
+        }else if(膜拜){
+            click(膜拜.x ,膜拜.y);
+            sleep(通用休眠时间);
+            var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+            sleep(通用休眠时间);
+            if(返回){
+                UTILS.click(返回.x,返回.y);
+            }
+            sleep(通用休眠时间);
+            var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+            log(日常任务+'开始日常任务');
+            sleep(通用休眠时间*2);
+            if(日常任务){
+                UTILS.click(日常任务.x,日常任务.y);
+                sleep(通用休眠时间);
+                var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
+                log(日常领取+'日常领取');
+                sleep(通用休眠时间*2);
+                if(日常领取){
+                    click(日常领取.x,日常领取.y);
+                }
+            }
+            sleep(通用休眠时间*2);
+        }else if(寻宝标志 != null && 寻宝购买 != null){
+            click(寻宝购买.x ,寻宝购买.y);
+            sleep(通用休眠时间);
+            var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+            sleep(通用休眠时间);
+            if(返回){
+                UTILS.click(返回.x,返回.y);
+            }
+            sleep(通用休眠时间);
+            var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+            log(日常任务+'开始日常任务');
+            sleep(通用休眠时间*2);
+            if(日常任务){
+                UTILS.click(日常任务.x,日常任务.y);
+                sleep(通用休眠时间);
+                var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
+                log(日常领取+'日常领取');
+                sleep(通用休眠时间*2);
+                if(日常领取){
+                    click(日常领取.x,日常领取.y);
+                }
+            }
+            sleep(通用休眠时间*2);
+        }else if(日常标志){
+            UTILS.toastLog('暂时没有资格，请看清要求')
+            sleep(通用休眠时间);
+            var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+            sleep(通用休眠时间);
+            if(返回){
+                UTILS.click(返回.x,返回.y);
+            }
+            sleep(通用休眠时间);
+            var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+            log(日常任务+'开始日常任务');
+            sleep(通用休眠时间*2);
+            if(日常任务){
+                UTILS.click(日常任务.x,日常任务.y);
+                sleep(通用休眠时间);
+                var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
+                log(日常领取+'日常领取');
+                sleep(通用休眠时间*2);
+                if(日常领取){
+                    click(日常领取.x,日常领取.y);
+                }
+            }
+            sleep(通用休眠时间*2);
+            // clearInterval(任务时间);
+        }else if(神将首领 != null && 神将首领前往 != null){
+            click(神将首领前往.x ,神将首领前往.y);
+            sleep(通用休眠时间);
+            
+        }else if(副本进入 != null && 副本扫荡 != null && 材料副本 != null){
+            click(副本扫荡.x ,副本扫荡.y);
+            sleep(通用休眠时间);
+            var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+            sleep(通用休眠时间);
+            if(返回){
+                UTILS.click(返回.x,返回.y);
+            }
+            sleep(通用休眠时间);
+            var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+            log(日常任务+'开始日常任务');
+            sleep(通用休眠时间*2);
+            if(日常任务){
+                UTILS.click(日常任务.x,日常任务.y);
+                sleep(通用休眠时间);
+                var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
+                log(日常领取+'日常领取');
+                sleep(通用休眠时间*2);
+                if(日常领取){
+                    click(日常领取.x,日常领取.y);
+                }
+            }   
+        }else if(副本进入 != null && 材料副本 != null){
+            click(副本进入.x ,副本进入.y);
+            sleep(通用休眠时间);
+            var 返回时间 = setInterval(() => {
+                var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+                sleep(通用休眠时间);
+                if(返回){
+                    UTILS.click(返回.x,返回.y);
+                    sleep(通用休眠时间);
+                    clearInterval(返回时间);
+                    sleep(通用休眠时间);
+                    var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+                    log(日常任务+'开始日常任务');
+                    sleep(通用休眠时间*2);
+                    if(日常任务){
+                        UTILS.click(日常任务.x,日常任务.y);
+                        sleep(通用休眠时间);
+                        var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
+                        log(日常领取+'日常领取');
+                        sleep(通用休眠时间*2);
+                        if(日常领取){
+                            click(日常领取.x,日常领取.y);
+                        }
+                    }   
+                }
+            },通用休眠时间)
+        }else if(军团标志){
+                UTILS.toastLog('你已经进入军团页面');
+                sleep(通用休眠时间);
+                var 军团大厅 = UTILS.findImageFullScreen(IMAGE.军团.军团大厅,0.7);
+                if(军团大厅){
+                    UTILS.click(军团大厅.x,军团大厅.y);
+                    sleep(通用休眠时间);
+                    var 军团捐赠 = UTILS.findImage(IMAGE.军团.军团捐赠,2,2,0.7);
+                    log(军团捐赠)
+                    sleep(通用休眠时间);
+                    var 捐赠时间 = setInterval(() => {
+                      var 是否捐赠 = UTILS.findColorNoClick('#B21C0C',[[0,3,'#D5220F'],[10,6,'#AA1B0C']],[UTILS.deviceWidth/3*2,UTILS.deviceHeight/2,UTILS.deviceWidth/4,UTILS.deviceHeight/4],20)
+                     if(是否捐赠 != null){
+                         clearInterval(捐赠时间);
+                         sleep(通用休眠时间);
+                         var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+                         sleep(通用休眠时间);
+                         if(返回){
+                            UTILS.click(返回.x,返回.y);
+                            sleep(通用休眠时间);
+                            var 退出 = UTILS.findColorNoClick('#140303',[[26,33,'#EDDB9C'],[62,59,'#752B11']],[UTILS.deviceWidth/6*5,0,UTILS.deviceWidth/7,UTILS.deviceHeight],20); 
+                            if(退出){
+                                UTILS.click(退出.x,退出.y);
+                                sleep(通用休眠时间);
+                                var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+                                log(日常任务+'开始日常任务');
+                                sleep(通用休眠时间);
+                                var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+                                log(日常任务+'开始日常任务');
+                                sleep(通用休眠时间*2);
+                                if(日常任务){
+                                    UTILS.click(日常任务.x,日常任务.y);
+                                    sleep(通用休眠时间);
+                                    var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
+                                    log(日常领取+'日常领取');
+                                    sleep(通用休眠时间*2);
+                                    if(日常领取){
+                                        click(日常领取.x,日常领取.y);
+                                    }
+                                }      
+                            }
+                            
+                         }
+                     }else{
+                         UTILS.click(军团捐赠.x,军团捐赠.y,200)
+                     }
+                    },通用休眠时间)
+                }
+             }
+        // }
+        // else if(跨服5V5标志 != null){
+        //     storage.put('跨服5V5', 前往任务);
+        //     sleep(通用休眠时间);
+        //     UTILS.toastLog('战场未开启,请等待');
+        //     sleep(通用休眠时间);
+        //     var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+        //     sleep(通用休眠时间);
+        //     if(返回){
+        //         UTILS.click(返回.x,返回.y);
+        //     }
+        //     sleep(通用休眠时间);
+        //     var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+        //     log(日常任务+'开始日常任务');
+        //     sleep(通用休眠时间*2);
+        //     if(日常任务){
+        //         UTILS.click(日常任务.x,日常任务.y);
+        //         sleep(通用休眠时间);
+        //         var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
+        //         log(日常领取+'日常领取');
+        //         sleep(通用休眠时间*2);
+        //         if(日常领取){
+        //             click(日常领取.x,日常领取.y);
+        //         }
+        //     }
+        //     sleep(通用休眠时间*2);
+        // }
     }
 
 
