@@ -62,14 +62,16 @@ let main = function () {
     }
 
     this.开始运行 = () => {
-        // log()
+        // var aa = UTILS.findImage(IMAGE.福利大厅,2,1,0.7);
+        // var bb = UTILS.findImage(IMAGE.招财聚宝,2,2,0.7);
+        // log(aa,bb)
         // // var 一键强化 = UTILS.findImage(IMAGE.锻造.一键强化,2,2,0.7);
         // // log(一键强化+'一键强化');
         // // sleep(通用休眠时间*2);
         // var 副本扫荡 = UTILS.findImage(IMAGE.其他.副本扫荡,2,2,0.7);
         // log(副本扫荡+'副本扫荡');
         // sleep(通用休眠时间*2);
-        // return;
+        return;
         UTILS.toastLog('开始运行');
         sleep(3000);
         // this.VIP();
@@ -485,7 +487,6 @@ let main = function () {
         var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
         log(日常任务+'开始日常任务');
         sleep(通用休眠时间*2);
-        return
         if(日常任务){
             UTILS.click(日常任务.x,日常任务.y);
             sleep(通用休眠时间*2);
@@ -501,24 +502,25 @@ let main = function () {
                 sleep(通用休眠时间*2);
                 if(前往任务){
                     sleep(通用休眠时间);
-                    if(前往任务.x == storage.get('跨服5V5').x && 前往任务.y == storage.get('跨服5V5').y){
-                        UTILS.toastLog('暂未开始');
-                        sleep(通用休眠时间);
-                        click(前往任务.x,前往任务.y + 200 );
-                        sleep(通用休眠时间);
-                        this.日常任务判断();
-                    }else if(前往任务.x == storage.get('魔神首领').x && 前往任务.y == storage.get('魔神首领').y){  
-                        UTILS.toastLog('暂未开始');
-                        sleep(通用休眠时间);
-                        click(前往任务.x,前往任务.y + 200 );
-                        sleep(通用休眠时间);
-                        this.日常任务判断();
-                    }else{
-                        sleep(通用休眠时间);
-                        click(前往任务.x,前往任务.y);
-                        sleep(通用休眠时间);
-                        this.日常任务判断();
-                    }
+                    sleep(通用休眠时间);
+                    click(前往任务.x,前往任务.y + 400);
+                    sleep(通用休眠时间);
+                    this.日常任务判断();
+                    // if(前往任务.x == storage.get('跨服5V5').x && 前往任务.y == storage.get('跨服5V5').y){
+                    //     UTILS.toastLog('暂未开始');
+                    //     sleep(通用休眠时间);
+                    //     click(前往任务.x,前往任务.y + 200 );
+                    //     sleep(通用休眠时间);
+                    //     this.日常任务判断();
+                    // }else if(前往任务.x == storage.get('魔神首领').x && 前往任务.y == storage.get('魔神首领').y){  
+                    //     UTILS.toastLog('暂未开始');
+                    //     sleep(通用休眠时间);
+                    //     click(前往任务.x,前往任务.y + 200 );
+                    //     sleep(通用休眠时间);
+                    //     this.日常任务判断();
+                    // }else{
+                        
+                    // }
                     
 
                 }else if(前往任务 == null && 日常标志 != null){
@@ -888,6 +890,60 @@ let main = function () {
                     },通用休眠时间)
                 }
              }
+             var 主线都尉 = UTILS.findImage(IMAGE.主线.都尉,2,2,0.7);
+             if(主线都尉){
+                 UTILS.click(主线都尉.x,主线都尉.y,200);
+                 sleep(通用修眠时间);
+                 var 任务时间 = setInterval(() => {
+                    var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+                    log(日常任务+'开始日常任务');
+                    sleep(通用休眠时间*2);
+                    if(日常任务){
+                        clearInterval(任务时间);
+                        sleep(通用休眠时间);
+                        UTILS.click(日常任务.x,日常任务.y);
+                        sleep(通用休眠时间);
+                        var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
+                        log(日常领取+'日常领取');
+                        sleep(通用休眠时间*2);
+                        if(日常领取){
+                            click(日常领取.x,日常领取.y);
+                        }
+                    }
+                 },通用修眠时间)
+             }
+
+             var 福利大厅 = UTILS.findImage(IMAGE.福利大厅,2,1,0.7);
+             var 招财聚宝 = UTILS.findImage(IMAGE.招财聚宝,2,2,0.7); 
+             if(福利大厅 != null && 招财聚宝 != null) {
+                UTILS.click(招财聚宝.x,招财聚宝.y);
+                sleep(通用修眠时间);
+                var 聚宝 = UTILS.findImage(IMAGE.聚宝,2,1,0.7);
+                if(聚宝){
+                    UTILS.click(聚宝.x,聚宝.y,200);
+                    sleep(通用休眠时间);
+                         var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
+                         sleep(通用休眠时间);
+                         if(返回){
+                            UTILS.click(返回.x,返回.y);
+                            sleep(通用休眠时间);
+                            var 日常任务 = UTILS.findImage(IMAGE.任务.任务按钮,0,2,0.7);
+                            log(日常任务+'开始日常任务');
+                            sleep(通用休眠时间);
+                            if(日常任务){
+                                UTILS.click(日常任务.x,日常任务.y);
+                                sleep(通用休眠时间);
+                                var 日常领取 = UTILS.findImage(IMAGE.其他.日常领取,2,2,0.7);
+                                log(日常领取+'日常领取');
+                                sleep(通用休眠时间*2);
+                                if(日常领取){
+                                    click(日常领取.x,日常领取.y);
+                                }
+                            }      
+                            
+                         }
+                }
+             }    
         // }
         // else if(跨服5V5标志 != null){
         //     storage.put('跨服5V5', 前往任务);
