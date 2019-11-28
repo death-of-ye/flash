@@ -62,13 +62,14 @@ let main = function () {
     }
 
     this.开始运行 = () => {
-       
+        var 商城标志 = UTILS.findImage(IMAGE.商城.商城标志,2,1,0.7);
+        log(商城标志+'商城标志');
         if(商城标志){
             var 商城购买 = UTILS.findImage(IMAGE.商城.商城购买按钮,2,2,0.7);
             log(商城购买+'商城购买'); 
             sleep(通用休眠时间*2);  
             if(商城购买){
-                UTILS.click(商城购买.x,商城购买.y+20,200);
+                click(商城购买.x+20,商城购买.y+20);
                 sleep(通用休眠时间*2);
                 var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
                 sleep(通用休眠时间);

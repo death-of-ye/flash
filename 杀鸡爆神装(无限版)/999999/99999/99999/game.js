@@ -768,12 +768,20 @@ let main = function () {
             log(商城购买+'商城购买'); 
             sleep(通用休眠时间*2);  
             if(商城购买){
-                UTILS.click(商城购买.x,商城购买.y+20,200);
-                sleep(通用休眠时间*2);
+                click(商城购买.x+20,商城购买.y+20);
+                sleep(通用休眠时间);
+                var 商品购买 = UTILS.findImage(IMAGE.商城.商品购买,2,2,0.7);
+                log(商品购买+'商品购买'); 
+                sleep(通用休眠时间);
+                click(商品购买.x,商品购买.y);
+                sleep(通用休眠时间);
                 var 返回 = UTILS.findImage(IMAGE.返回,2,2,0.7);
                 sleep(通用休眠时间);
                 if(返回){
                     UTILS.click(返回.x,返回.y);
+                    this.日常任务前往();
+                }else{
+                    this.日常任务前往(); 
                 }
             }
         }
